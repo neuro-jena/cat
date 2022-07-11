@@ -875,8 +875,8 @@
         background-color: #dcdee0;
     }
 
-    #QA {
-        background: url('../images/QA.jpg') no-repeat;        
+    #QC {
+        background: url('../images/QC.jpg') no-repeat;        
         background-size: 60%;
         background-attachment: fixed;                       
         background-position: center left;
