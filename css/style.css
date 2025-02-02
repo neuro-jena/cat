@@ -831,7 +831,8 @@
         background-size: 80%;
         background-attachment: fixed;
         background-position: center;   
-    
+        padding-top: 205px;
+        padding-bottom: 205px;    
     }
     
     #VBM {

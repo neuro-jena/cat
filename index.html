@@ -3,9 +3,9 @@
   <head>
     <title>CAT</title>
     
+    <meta charset="UTF-8">
     <meta name="description" content="CAT12 is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, and surface-based morphometry.">
     <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM">
-    <meta charset="UTF-8">
     <script type="text/javascript" async="" src="./js/ga.js"></script><script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.poptrox.min.js"></script>    
     <script src="./js/skel.min.js"></script>
@@ -13,7 +13,7 @@
     <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="./js/jquery.form.js"></script>
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CPSPL0H05"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -40,13 +40,13 @@
     </span>
   </div>
         
-  <!-- Header -->
+<!-- Header -->
   <header id="header" class="loading" style="opacity: 1;">
 
-    <!-- Logo -->
+<!-- Logo -->
     <h1 id="logo"><a href="index.html">CAT</a></h1>
 
-    <!-- Nav -->
+<!-- Nav -->
     <nav id="nav">
       <ul>
         <li><a href="https://neuro-jena.github.io">Structural Brain Mapping Group</a></li>
@@ -63,7 +63,7 @@
 
   </header>
 
-  <section id="INTRO" class="main style1 light fullscreen" style="padding-top: 205px; padding-bottom: 205px;">
+  <section id="INTRO" class="main style1 light fullscreen">
     <div class="content container 75%">
       <header>
         <h3><br></h3>
@@ -77,7 +77,7 @@
     </div>
   </section>
        
-  <!-- About -->
+<!-- About -->
   <section id="About" class="main style2 fullscreen light">            
     <div id="About_anchor" class="content container 75%">
       <header>
@@ -89,7 +89,7 @@
     <a href="index.html#VBM" class="button style2 down anchored">Next</a>
   </section>
     
-  <!-- VBM -->
+<!-- VBM -->
   <section id="VBM" class="main style2 left light">                 
     <div id="VBM_anchor" class="content box left" style="color: #444; background-color: #aaa; background: rgba(220, 222, 224, 0.9);">
       <header>
@@ -101,7 +101,7 @@
     <a href="#DBM" class="button style2 down anchored">Next</a>
   </section>
     
-  <!-- DBM -->
+<!-- DBM -->
   <section id="DBM" class="main style2 right light">                  
     <div id="DBM_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
       <header>
@@ -109,14 +109,14 @@
       </header>
       <p>DBM is based on the application of non-linear registration procedures to spatially normalise one brain to another one. The simplest case of spatial registration is to correct the orientation and size of the brains. In addition to these global changes, a non-linear registration is necessary to minimise the remaining regional differences by means of local deformations. If this local adaptation is possible, the deformations now reveal information about the type and localization of the structural differences between the brains and can undergo subsequent analysis.</p>
       <p>Differences between both images are minimized and are now coded in the deformations. Finally, a map of local volume changes can be quantified by a mathematical property of these deformations - the Jacobian determinant. This parameter is well known from continuum mechanics and is usually used for the analysis of volume changes in flowing liquids or gases. The Jacobian determinant allows a direct estimation of the percentage change in volume in each voxel and can be statistically analyzed (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI01.pdf">Gaser et al. 2001</a>). This approach is also known as tensor-based morphometry because the Jacobian determinant represents such a tensor.</p>
-  <!--                    
+<!--                    
   <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
-  -->
+-->
     </div>
     <a href="#SBM" class="button style2 down anchored">Next</a>
   </section>
                           
-  <!-- SBM -->
+<!-- SBM -->
   <section id="SBM" class="main style2 left light">                 
     <div id="SBM_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
       <header>
@@ -141,7 +141,7 @@
     <a href="#RBM" class="button style2 down anchored">Next</a>
   </section>
 
-  <!-- RBM -->  
+<!-- RBM -->  
   <section id="RBM" class="main style2 right light">                 
     <div id="RBM_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
       <header>
@@ -153,7 +153,7 @@
     <a href="#Features" class="button style2 down anchored">Next</a>
   </section>
 
-  <!-- Features -->
+<!-- Features -->
   <section id="Features" class="main style2 left light">                  
     <div id="Features_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
       <header>
@@ -188,7 +188,7 @@
     <a href="#QC" class="button style2 down anchored">Next</a>
   </section>        
 
-  <!-- QC -->
+<!-- QC -->
   <section id="QC" class="main style2 right light">                 
     <div id="QC_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
       <header>
@@ -200,7 +200,7 @@
     <a href="#Download" class="button style2 down anchored">Next</a>
   </section>
 
-  <!-- Download -->
+<!-- Download -->
   <section id="DOWNLOAD" class="main style3 center">
     <div id="download_anchor" class="content container 75%">
       <header>
