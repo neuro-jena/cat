@@ -109,7 +109,8 @@
       </header>
       <p>DBM is based on the application of non-linear registration procedures to spatially normalise one brain to another one. The simplest case of spatial registration is to correct the orientation and size of the brains. In addition to these global changes, a non-linear registration is necessary to minimise the remaining regional differences by means of local deformations. If this local adaptation is possible, the deformations now reveal information about the type and localization of the structural differences between the brains and can undergo subsequent analysis.</p>
       <p>Differences between both images are minimized and are now coded in the deformations. Finally, a map of local volume changes can be quantified by a mathematical property of these deformations - the Jacobian determinant. This parameter is well known from continuum mechanics and is usually used for the analysis of volume changes in flowing liquids or gases. The Jacobian determinant allows a direct estimation of the percentage change in volume in each voxel and can be statistically analyzed (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI01.pdf">Gaser et al. 2001</a>). This approach is also known as tensor-based morphometry because the Jacobian determinant represents such a tensor.</p>
-  <!--                    <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
+  <!--                    
+  <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
   -->
     </div>
     <a href="#SBM" class="button style2 down anchored">Next</a>
@@ -124,21 +125,17 @@
       <p>CAT12 additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
       <p>Furthermore, the surface pipeline uses topology correction (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>) and spherical mapping (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p> 
       <p>Surface-based morphometry has several advantages over using volumetric data alone. For instance, brain surface meshes have been shown to increase the accuracy of brain registration compared with Talairach registration (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.03.024">Desai et al. 2005</a>, <a href="https://doi.org/10.1038/s41598-020-62832-z">Brodoehl et al. 2005</a>). Brain surface meshes also permit new forms of analyses, such as gyrification indices that measure surface complexity in 3D (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>), local gyrification (<a href="http://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>) or cortical thickness. Furthermore, inflation or spherical mapping of the cortical surface mesh raises the buried sulci to the surface so that mapped functional activity in these regions can be easily visualized.</p>
-      <header>
-        <h6>Cortical thickness and central surface estimation</h6>
-      </header>
+      
+      <h6>Cortical thickness and central surface estimation</h6>
       <p>We use a fully automated method that allows for measurement of cortical thickness and reconstructions of the central surface in one step. It uses a tissue segmentation to estimate the white matter (WM) distance, then projects the local maxima (which is equal to the cortical thickness) to other gray matter voxels by using a neighbor relationship described by the WM distance. This projection-based thickness (PBT) allows the handling of partial volume information, sulcal blurring, and sulcal asymmetries without explicit sulcus reconstruction (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
-      <header>
-        <h6>Topological correction</h6>
-      </header>
+
+      <h6>Topological correction</h6>
       <p>In order to repair topological defects we use a novel method that relies on spherical harmonics (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>). First, the original MRI intensity values are used as a basis to select either a &rsquo;fill&rsquo; or &rsquo;cut&rsquo; operation for each topological defect. We modify the spherical map of the uncorrected brain surface mesh, such that certain triangles are favored while searching for the bounding triangle during reparameterization. Then, a low-pass filtered alternative reconstruction based on spherical harmonics is patched into the reconstructed surface in areas that previously contained defects.</p>
-      <header>
-        <h6>Spherical mapping</h6>
-      </header>
+      
+      <h6>Spherical mapping</h6>
       <p>A spherical map of a cortical surface is usually necessary to reparameterize the surface mesh into a common coordinate system to allow inter-subject analysis. We use a fast algorithm to reduce area distortion resulting in an improved reparameterization of the cortical surface mesh (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p>
-      <header>
-        <h6>Spherical registration</h6>
-      </header>
+      
+      <h6>Spherical registration</h6>
       <p>We have adapted the volume-based diffeomorphic Dartel algorithm to the surface (<a href="http://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) to work with spherical maps (<a href="https://www.academia.edu/download/30706385/Yotter02.pdf">Yotter et al. 2011d</a>). We apply a multi-grid approach that uses reparameterized values of sulcal depth and shape index defined on the sphere to estimate a flow field that allows deforming a spherical grid.</p>
     </div>
     <a href="#RBM" class="button style2 down anchored">Next</a>
@@ -163,37 +160,29 @@
         <h5>Features</h5>
       </header>
       <p>CAT12 is an extension of the segmentation in SPM12, but uses a completely different segmentation approach.</p>
-      <header>
-        <h6>Interpolation</h6>
-      </header>
+      
+      <h6>Interpolation</h6>
       <p>CAT12 uses an internal interpolation to provide more reliable results even with low resolution images and anisotropic spatial resolutions. Although interpolation cannot add more details to the images, some of the functions used benefit from the higher number of voxels and the usual strip artefacts in modulated images are greatly reduced.</p>
-      <header>
-        <h6>Denoising</h6>
-      </header>
+      
+      <h6>Denoising</h6>
       <p>We also use two noise reduction methods to make data processing, and the tissue segmentation in particular, more robust against noise. The first method is a spatial-adaptive Non-Local Means (SANLM) denoising filter and removes noise while maintaining edges (<a href="http://dx.doi.org/10.1002/jmri.22003">Manjon et al. 2010</a>) and is implemented as pre-processing step. The second method is a classical Markov Random Field (MRF) approach, which includes spatial information from adjacent voxels in the segmentation estimation (<a href="http://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) and is part of the AMAP segmentation.</p>
-      <header>
-        <h6>Affine Preprocessing (APP)</h6>
-      </header>
+      
+      <h6>Affine Preprocessing (APP)</h6>
       <p>To improve the initial SPM segmentation, an initial affine registration is applied to a bias-corrected image and the intensity range is limited to avoid problems with special protocols. If the preprocessing fails a more aggressive version is available that applies a rough bias correction and removes non-brain parts the brain before the initial affine registration.</p>
-      <header>
-        <h6>Local Adaptive Segmentation (LAS)</h6>
-      </header>
+
+      <h6>Local Adaptive Segmentation (LAS)</h6>
       <p>GM intensity can vary for different regions such as the motor cortex, the basal ganglia, or the occipital lobe. These changes have an anatomical background (e.g. iron content, myelination), but are dependent on the MR-protocol and often lead to GM-underestimations at higher intensities and CSF-overestimations at lower intensities. Therefore, a local intensity transformation of all tissue classes is used to reduce these effects in the image before the final AMAP segmentation. </p>
-      <header>
-        <h6>Amap Segmentation</h6>
-      </header>
+      
+      <h6>Amap Segmentation</h6>
       <p>The segmentation approach is based on an Adaptive Maximum A Posterior (AMAP) technique without the need for a priori information on the tissue probabilities. This means that the Tissue Probability Maps (TPM) are not constantly used in the sense of the classical Unified Segmentation approach (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner et al. 2005</a>), but only for spatial normalization, initial skull-stripping, and as initial segmentation estimate. The subsequent AMAP estimation is adaptive in the sense that local variations of the parameters (i.e., means and variance) are modelled as slowly varying spatial functions (<a href="http://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>). This accounts not only for intensity inhomogeneities, but also for other local intensity variations.</p>
-      <header>
-        <h6>Partial Volume Segmentation</h6>
-      </header>
+      
+      <h6>Partial Volume Segmentation</h6>
       <p>In addition, the segmentation approach uses a Partial Volume Estimation (PVE) with a simplified mixed model of a maximum of two tissue types (<a href="http://dx.doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>). We begin with an initial segmentation into three pure classes: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) based on the AMAP estimation described above. The initial segmentation is followed by a PVE consisting of two additional mixed classes: GM-WM and GM-CSF. This results in an estimate of the amount (or fraction) of each pure tissue type that is present in each voxel (since single voxels - given their size - probably contain more than one tissue type) and thus allows for more precise segmentation.</p>
-      <header>
-        <h6>Skull-Stripping</h6>
-      </header>
+      
+      <h6>Skull-Stripping</h6>
       <p>CAT12 contains a revised graph-cut based skull-stripping.</p>
-      <header>
-        <h6>Spatial Normalization</h6>
-      </header>
+      
+      <h6>Spatial Normalization</h6>
       <p>Another important extension of the SPM12 segmentation is the integration of the Dartel (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) and the Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) normalization into the toolbox by already existing DARTEL and Geodesic Shooting templates in MNI space. These templates were derived from 555 healthy control subjects of the <a href="http://www.brain-development.org">IXI-database</a>. Therefore, the creation of sample-specific DARTEL and Geodesic Shooting templates is no longer necessary for most studies.</p>
     </div>
     <a href="#QC" class="button style2 down anchored">Next</a>
@@ -223,13 +212,11 @@
         <li><a href="https://neuro-jena.github.io/cat12-help/" class="button">CAT12 Manual</a></li>
       </ul>
       <br>
-      <header>
-        <h5>Requirements</h5>
-      </header>
+      
+      <h5>Requirements</h5><br>
       <p>CAT12 is designed to work with <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM12</a> and <a href="http://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required. </p>
-      <header>
-        <h5>Installation</h5>
-      </header>
+      
+      <h5>Installation</h5><br>
       <ul class="default left">
         <li>Remove the old cat12 folder in spm12/toolbox if existing</li>
         <li>Unpack the zip-file</li>
@@ -238,9 +225,8 @@
         <li>After restarting SPM12 either call CAT12 via the toolbox button or (as short-cut) type <i>cat12</i> on the Matlab command line.</li>
       </ul>
       <br>
-      <header>
-        <h5>Download Standalone Version (no need for Matlab licene)</h5>
-      </header>
+      
+      <h5>Download Standalone Version (no need for Matlab licene)</h5><br>
       <p>The advantage of the standalone version is that no Matlab license is needed. Only the (free) Matlab Runtime R2017b (v93) has to be downloaded. However, there are some limitations (e.g. no parallelization and no interactive help in the GUI version) and the standalone version is mainly intended to run without GUI on Unix systems. Please check the <a href="https://neuro-jena.github.io/enigma-cat12/#standalone">ENIGMA CAT12</a> site fore more information and examples to call CAT12 from shell scripts.</p>
       <p>The MATLAB Compiler Runtime (MCR) enables you to run applications compiled within MATLAB using MATLAB Compiler. MCR does not require a MATLAB license and can be used to run the MATLAB compiled program on computers which do not have MATLAB installed. </p>
       <ul class="actions">
