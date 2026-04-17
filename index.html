@@ -4,7 +4,7 @@
     <title>CAT</title>
     
     <meta charset="UTF-8">
-    <meta name="description" content="CAT12 is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, and surface-based morphometry.">
+    <meta name="description" content="CAT is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, and surface-based morphometry.">
     <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM">
     <script type="text/javascript" async="" src="./js/ga.js"></script><script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.poptrox.min.js"></script>    
@@ -83,7 +83,7 @@
       <header>
         <h5>About</h5>
       </header>
-      <p>This toolbox is an extension to <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM12</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="index.html#VBM">VBM</a>), surface-based morphometry (<a href="index.html#SBM">SBM</a>), deformation-based morphometry (<a href="index.html#DBM">DBM</a>), and region- or label-based morphometry (<a href="index.html#RBM">RBM</a>).</p>
+      <p>This toolbox is an extension to <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="index.html#VBM">VBM</a>), surface-based morphometry (<a href="index.html#SBM">SBM</a>), deformation-based morphometry (<a href="index.html#DBM">DBM</a>), and region- or label-based morphometry (<a href="index.html#RBM">RBM</a>).</p>
       <p>It is developed by <a href="http://www.neuro.uni-jena.de/people/christian-gaser/">Christian Gaser</a> and <a href="http://www.neuro.uni-jena.de/people/robert-dahnke/">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and free but copyright software, distributed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
     </div>
     <a href="index.html#VBM" class="button style2 down anchored">Next</a>
@@ -122,7 +122,7 @@
       <header>
         <h5>Surface-based morphometry (SBM)</h5>
       </header>
-      <p>CAT12 additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
+      <p>CAT additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
       <p>Furthermore, the surface pipeline uses topology correction (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>) and spherical mapping (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p> 
       <p>Surface-based morphometry has several advantages over using volumetric data alone. For instance, brain surface meshes have been shown to increase the accuracy of brain registration compared with Talairach registration (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.03.024">Desai et al. 2005</a>, <a href="https://doi.org/10.1038/s41598-020-62832-z">Brodoehl et al. 2005</a>). Brain surface meshes also permit new forms of analyses, such as gyrification indices that measure surface complexity in 3D (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>), local gyrification (<a href="http://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>) or cortical thickness. Furthermore, inflation or spherical mapping of the cortical surface mesh raises the buried sulci to the surface so that mapped functional activity in these regions can be easily visualized.</p>
       
@@ -147,8 +147,8 @@
       <header>
         <h5>Region- or label-based morphometry (RBM)</h5>
       </header>
-      <p>CAT12 also allows estimation of regional tissue volumes (and optionally cortical thickness values) for different volume and surface-based atlas maps. The idea of this approach is that regions of interest (ROIs) can be defined once in an atlas brain and can be then mapped to the individual brain by using a high-dimensional spatial registration. This approach is also known as label- or region-based morphometry.</p>
-      <p>CAT12 provides different volume- as well as surface-based atlases with several predefined ROIs.</p>
+      <p>CAT also allows estimation of regional tissue volumes (and optionally cortical thickness values) for different volume and surface-based atlas maps. The idea of this approach is that regions of interest (ROIs) can be defined once in an atlas brain and can be then mapped to the individual brain by using a high-dimensional spatial registration. This approach is also known as label- or region-based morphometry.</p>
+      <p>CAT provides different volume- as well as surface-based atlases with several predefined ROIs.</p>
     </div>
     <a href="#Features" class="button style2 down anchored">Next</a>
   </section>
@@ -159,10 +159,10 @@
       <header>
         <h5>Features</h5>
       </header>
-      <p>CAT12 is an extension of the segmentation in SPM12, but uses a completely different segmentation approach.</p>
+      <p>CAT is an extension of the segmentation in SPM, but uses a completely different segmentation approach.</p>
       
       <h6>Interpolation</h6>
-      <p>CAT12 uses an internal interpolation to provide more reliable results even with low resolution images and anisotropic spatial resolutions. Although interpolation cannot add more details to the images, some of the functions used benefit from the higher number of voxels and the usual strip artefacts in modulated images are greatly reduced.</p>
+      <p>CAT uses an internal interpolation to provide more reliable results even with low resolution images and anisotropic spatial resolutions. Although interpolation cannot add more details to the images, some of the functions used benefit from the higher number of voxels and the usual strip artefacts in modulated images are greatly reduced.</p>
       
       <h6>Denoising</h6>
       <p>We also use two noise reduction methods to make data processing, and the tissue segmentation in particular, more robust against noise. The first method is a spatial-adaptive Non-Local Means (SANLM) denoising filter and removes noise while maintaining edges (<a href="http://dx.doi.org/10.1002/jmri.22003">Manjon et al. 2010</a>) and is implemented as pre-processing step. The second method is a classical Markov Random Field (MRF) approach, which includes spatial information from adjacent voxels in the segmentation estimation (<a href="http://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) and is part of the AMAP segmentation.</p>
@@ -180,10 +180,10 @@
       <p>In addition, the segmentation approach uses a Partial Volume Estimation (PVE) with a simplified mixed model of a maximum of two tissue types (<a href="http://dx.doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>). We begin with an initial segmentation into three pure classes: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) based on the AMAP estimation described above. The initial segmentation is followed by a PVE consisting of two additional mixed classes: GM-WM and GM-CSF. This results in an estimate of the amount (or fraction) of each pure tissue type that is present in each voxel (since single voxels - given their size - probably contain more than one tissue type) and thus allows for more precise segmentation.</p>
       
       <h6>Skull-Stripping</h6>
-      <p>CAT12 contains a revised graph-cut based skull-stripping.</p>
+      <p>CAT contains a revised graph-cut based skull-stripping.</p>
       
       <h6>Spatial Normalization</h6>
-      <p>Another important extension of the SPM12 segmentation is the integration of the Dartel (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) and the Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) normalization into the toolbox by already existing DARTEL and Geodesic Shooting templates in MNI space. These templates were derived from 555 healthy control subjects of the <a href="http://www.brain-development.org">IXI-database</a>. Therefore, the creation of sample-specific DARTEL and Geodesic Shooting templates is no longer necessary for most studies.</p>
+      <p>Another important extension of the SPM segmentation is the integration of the Dartel (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) and the Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) normalization into the toolbox by already existing DARTEL and Geodesic Shooting templates in MNI space. These templates were derived from 555 healthy control subjects of the <a href="http://www.brain-development.org">IXI-database</a>. Therefore, the creation of sample-specific DARTEL and Geodesic Shooting templates is no longer necessary for most studies.</p>
     </div>
     <a href="#QC" class="button style2 down anchored">Next</a>
   </section>        
@@ -208,41 +208,42 @@
       </header>
       <p>The CAT toolbox is available to the scientific community under the terms of the GNU General Public License.</p>
       <ul class="actions">
-        <li><a href="https://www.neuro.uni-jena.de/cat12/cat12_latest.zip" class="button">Download CAT12</a></li>
-        <li><a href="https://neuro-jena.github.io/cat12-help/" class="button">CAT12 Manual</a></li>
+        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest" class="button">Download CAT</a></li>
+        <li><a href="http://dbm.neuro.uni-jena.de/cat12/" class="button">Download older CAT versions</a></li>
+        <li><a href="https://neuro-jena.github.io/cat12-help/" class="button">CAT Manual</a></li>
       </ul>
       <br>
       
       <h5>Requirements</h5><br>
-      <p>CAT12 is designed to work with <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM12</a> and <a href="http://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required. </p>
+      <p>CAT is designed to work with <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM</a> and <a href="http://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required. </p>
       
       <h5>Installation</h5><br>
       <ul class="default left">
-        <li>Remove the old cat12 folder in spm12/toolbox if existing</li>
+        <li>Remove the old cat12 or CAT folder in spm/toolbox if existing</li>
         <li>Unpack the zip-file</li>
-        <li>Copy the cat12 folder to the spm12/toolbox directory</li>
-        <li>If once installed use the update function in CAT12 in order to check for new versions</li>
-        <li>After restarting SPM12 either call CAT12 via the toolbox button or (as short-cut) type <i>cat12</i> on the Matlab command line.</li>
+        <li>Copy the CAT folder to the spm/toolbox directory</li>
+        <li>If once installed use the update function in CAT in order to check for new versions</li>
+        <li>After restarting SPM either call CAT via the toolbox button or (as short-cut) type <i>CAT</i> on the Matlab command line.</li>
       </ul>
       <br>
       
       <h5>Download Standalone Version (no need for Matlab licene)</h5><br>
-      <p>The advantage of the standalone version is that no Matlab license is needed. Only the (free) Matlab Runtime R2023b (v232) has to be downloaded. However, there are some limitations (e.g. no parallelization and no interactive help in the GUI version) and the standalone version is mainly intended to run without GUI on Unix systems. Please check the <a href="https://neuro-jena.github.io/enigma-cat12/#standalone">ENIGMA CAT12</a> site fore more information and examples to call CAT12 from shell scripts.</p>
+      <p>The advantage of the standalone version is that no Matlab license is needed. Only the (free) Matlab Runtime R2023b (v232) has to be downloaded. However, there are some limitations (e.g. no parallelization and no interactive help in the GUI version) and the standalone version is mainly intended to run without GUI on Unix systems. Please check the <a href="https://neuro-jena.github.io/enigma-cat12/#standalone">ENIGMA CAT12</a> site fore more information and examples to call CAT from shell scripts.</p>
       <p>The MATLAB Compiler Runtime (MCR) enables you to run applications compiled within MATLAB using MATLAB Compiler. MCR does not require a MATLAB license and can be used to run the MATLAB compiled program on computers which do not have MATLAB installed. </p>
       <ul class="actions">
-        <li><a href="https://www.neuro.uni-jena.de/cat12/cat12_latest_R2023b_MCR_Linux.zip" class="button">CAT12 Standalone for Linux</a></li>
+        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Linux.zip" class="button">CAT Standalone for Linux</a></li>
         <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_10_glnxa64.zip" class="button">MCR for Linux</a></li>
       </ul>
       <ul class="actions">
-        <li><a href="https://www.neuro.uni-jena.de/cat12/cat12_latest_R2023b_MCR_Mac.zip" class="button">CAT12 Standalone for Mac</a></li>
+        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac.zip" class="button">CAT Standalone for Mac Intel</a></li>
         <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maci64/MATLAB_Runtime_R2023b_Update_10_maci64.dmg.zip" class="button">MCR for Mac</a></li>
       </ul>
       <ul class="actions">
-        <li><a href="https://www.neuro.uni-jena.de/cat12/cat12_latest_R2023b_MCR_MAC_arm64.zip" class="button">CAT12 Standalone for Mac (ARM64)</a></li>
+        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac_arm64.zip" class="button">CAT Standalone for Mac ARM64 (Silicon)</a></li>
         <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maca64/MATLAB_Runtime_R2023b_Update_10_maca64.dmg" class="button">MCR for Mac (ARM64)</a></li>
       </ul>
       <ul class="actions">
-        <li><a href="https://www.neuro.uni-jena.de/cat12/cat12_latest_R2023b_MCR_Win.zip" class="button">CAT12 Standalone for Windows</a></li>
+        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Win.zip" class="button">CAT Standalone for Windows</a></li>
         <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/win64/MATLAB_Runtime_R2023b_Update_10_win64.zip" class="button">MCR for Windows</a></li>
       </ul>
 
