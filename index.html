@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>CAT</title>
-    
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CAT is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, surface-based, and region-based morphometry.">
     <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM, RBM">
-    <script type="text/javascript" async="" src="./js/ga.js"></script><script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.poptrox.min.js"></script>    
     <script src="./js/skel.min.js"></script>
     <script src="./js/init.js"></script> 
@@ -30,18 +31,11 @@
       <link rel="stylesheet" href="css/style-normal.css" />
     </noscript>
                 
-  <style type="text/css"></style></head>
-  <body class="" style="opacity: 1;"><div id="StayFocusd-infobar" style="display: none; top: 0px;">
-    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-    <span id="StayFocusd-infobar-msg"></span>
-    <span id="StayFocusd-infobar-links">
-      <a id="StayFocusd-infobar-never-show">Always fading</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a id="StayFocusd-infobar-hide">Fading</a>
-    </span>
-  </div>
-        
+  </head>
+  <body>
+
 <!-- Header -->
-  <header id="header" class="loading" style="opacity: 1;">
+  <header id="header" class="loading">
 
 <!-- Logo -->
     <h1 id="logo"><a href="index.html">CAT</a></h1>
@@ -50,22 +44,22 @@
     <nav id="nav">
       <ul>
         <li><a href="https://neuro-jena.github.io">Structural Brain Mapping Group</a></li>
-        <li><a href="index.html#About">About</a></li>
-          <li><a href="index.html#VBM">VBM</a></li>                            
-          <li><a href="index.html#DBM">DBM</a></li>                            
-          <li><a href="index.html#SBM">SBM</a></li>                            
-          <li><a href="index.html#QC">QC</a></li>                            
-          <li><a href="index.html#RBM">RBM</a></li>                       
-          <li><a href="index.html#Features">Features</a></li>
-          <li><a href="index.html#CITE">Cite</a></li>
-          <li><a href="index.html#DOWNLOAD">Download</a></li>
+        <li><a href="#About">About</a></li>
+          <li><a href="#VBM">VBM</a></li>                            
+          <li><a href="#DBM">DBM</a></li>                            
+          <li><a href="#SBM">SBM</a></li>                            
+          <li><a href="#QC">QC</a></li>                            
+          <li><a href="#RBM">RBM</a></li>                       
+          <li><a href="#Features">Features</a></li>
+          <li><a href="#CITE">Cite</a></li>
+          <li><a href="#DOWNLOAD">Download</a></li>
       </ul>
     </nav>
 
   </header>
 
   <section id="INTRO" class="main style1 light fullscreen">
-    <div class="content container 75%">
+    <div class="content container">
       <header>
         <h3><br></h3>
         <h2>CAT</h2>
@@ -73,21 +67,21 @@
         <h3><br></h3>
       </header>                    
       <footer>                        
-        <a href="index.html#About" class="button style2 down">More</a>
+        <a href="#About" class="button style2 down">More</a>
       </footer>
     </div>
   </section>
        
 <!-- About -->
   <section id="About" class="main style2 fullscreen light">            
-    <div id="About_anchor" class="content container 75%">
+    <div id="About_anchor" class="content container">
       <header>
         <h5>About</h5>
       </header>
-      <p>This toolbox is an extension to <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="index.html#VBM">VBM</a>), surface-based morphometry (<a href="index.html#SBM">SBM</a>), deformation-based morphometry (<a href="index.html#DBM">DBM</a>), and region- or label-based morphometry (<a href="index.html#RBM">RBM</a>).</p>
-      <p>It is developed by <a href="http://www.neuro.uni-jena.de/people/christian-gaser/">Christian Gaser</a> and <a href="http://www.neuro.uni-jena.de/people/robert-dahnke/">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and is free but copyrighted software, distributed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+      <p>This toolbox is an extension to <a href="https://www.fil.ion.ucl.ac.uk/spm/software/#current/">SPM</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="#VBM">VBM</a>), surface-based morphometry (<a href="#SBM">SBM</a>), deformation-based morphometry (<a href="#DBM">DBM</a>), and region- or label-based morphometry (<a href="#RBM">RBM</a>).</p>
+      <p>It is developed by <a href="https://neuro-jena.github.io/people.html">Christian Gaser</a> and <a href="https://neuro-jena.github.io/people.html">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and is free but copyrighted software, distributed under the terms of the <a href="https://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
     </div>
-    <a href="index.html#VBM" class="button style2 down anchored">Next</a>
+    <a href="#VBM" class="button style2 down anchored">Next</a>
   </section>
     
 <!-- VBM -->
@@ -96,7 +90,7 @@
       <header>
         <h5>Voxel-based morphometry (VBM)</h5>
       </header>
-      <p>VBM provides the voxel-wise estimation of the local amount or volume of a specific tissue compartment (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner 2005</a>). VBM is most often applied to investigate the local distribution of grey matter, but can also be used to examine white matter. However, it is less sensitive to white-matter effects, for which methods such as DTI are better suited.</p>
+      <p>VBM provides the voxel-wise estimation of the local amount or volume of a specific tissue compartment (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner 2005</a>). VBM is most often applied to investigate the local distribution of grey matter, but can also be used to examine white matter. However, it is less sensitive to white-matter effects, for which methods such as DTI are better suited.</p>
       <p>The concept of VBM incorporates different preprocessing steps: (1) spatial registration to a reference brain (template), (2) tissue classification (segmentation) into grey and white matter and CSF, and (3) bias correction of intensity non-uniformities. Finally, segmentations are modulated by scaling with the amount of volume changes due to spatial registration, so that the total amount of grey matter in the modulated image remains the same as it would be in the original image.</p>
     </div>
     <a href="#DBM" class="button style2 down anchored">Next</a>
@@ -109,9 +103,9 @@
         <h5>Deformation-based morphometry (DBM)</h5>
       </header>
       <p>DBM is based on the application of non-linear registration procedures to spatially normalise one brain to another. The simplest case of spatial registration is to correct the orientation and size of the brains. In addition to these global changes, a non-linear registration is necessary to minimise the remaining regional differences by means of local deformations. Once this local adaptation succeeds, the deformations encode the type and localisation of the structural differences between the brains and can undergo subsequent analysis.</p>
-      <p>A map of local volume changes can then be quantified by a mathematical property of these deformations - the Jacobian determinant. This parameter is well known from continuum mechanics and is usually used for the analysis of volume changes in flowing liquids or gases. The Jacobian determinant allows a direct estimation of the percentage change in volume in each voxel and can be statistically analysed (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI01.pdf">Gaser et al. 2001</a>). This approach is also known as tensor-based morphometry because the Jacobian determinant represents such a tensor.</p>
+      <p>A map of local volume changes can then be quantified by a mathematical property of these deformations - the Jacobian determinant. This parameter is well known from continuum mechanics and is usually used for the analysis of volume changes in flowing liquids or gases. The Jacobian determinant allows a direct estimation of the percentage change in volume in each voxel and can be statistically analysed (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI01.pdf">Gaser et al. 2001</a>). This approach is also known as tensor-based morphometry because the Jacobian determinant represents such a tensor.</p>
 <!--                    
-  <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="http://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
+  <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
 -->
     </div>
     <a href="#SBM" class="button style2 down anchored">Next</a>
@@ -123,21 +117,21 @@
       <header>
         <h5>Surface-based morphometry (SBM)</h5>
       </header>
-      <p>CAT additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
-      <p>Furthermore, the surface pipeline uses topology correction (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>) and spherical mapping (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p> 
-      <p>Surface-based morphometry has several advantages over using volumetric data alone. For instance, brain surface meshes have been shown to increase the accuracy of brain registration compared with Talairach registration (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.03.024">Desai et al. 2005</a>, <a href="https://doi.org/10.1038/s41598-020-62832-z">Brodoehl et al. 2020</a>). Brain surface meshes also permit new forms of analyses, such as gyrification indices that measure surface complexity in 3D (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>), local gyrification (<a href="http://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>) or cortical thickness. Furthermore, inflation or spherical mapping of the cortical surface mesh raises the buried sulci to the surface so that mapped functional activity in these regions can be easily visualised.</p>
+      <p>CAT additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="https://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
+      <p>Furthermore, the surface pipeline uses topology correction (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>) and spherical mapping (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p> 
+      <p>Surface-based morphometry has several advantages over using volumetric data alone. For instance, brain surface meshes have been shown to increase the accuracy of brain registration compared with Talairach registration (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.03.024">Desai et al. 2005</a>, <a href="https://doi.org/10.1038/s41598-020-62832-z">Brodoehl et al. 2020</a>). Brain surface meshes also permit new forms of analyses, such as gyrification indices that measure surface complexity in 3D (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>), local gyrification (<a href="https://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>) or cortical thickness. Furthermore, inflation or spherical mapping of the cortical surface mesh raises the buried sulci to the surface so that mapped functional activity in these regions can be easily visualised.</p>
       
       <h6>Cortical thickness and central surface estimation</h6>
-      <p>We use a fully automated method that allows for measurement of cortical thickness and reconstructions of the central surface in one step. It uses a tissue segmentation to estimate the white matter (WM) distance, then projects the local maxima (which is equal to the cortical thickness) to other gray matter voxels by using a neighbour relationship described by the WM distance. This projection-based thickness (PBT) allows the handling of partial volume information, sulcal blurring, and sulcal asymmetries without explicit sulcus reconstruction (<a href="http://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
+      <p>We use a fully automated method that allows for measurement of cortical thickness and reconstructions of the central surface in one step. It uses a tissue segmentation to estimate the white matter (WM) distance, then projects the local maxima (which is equal to the cortical thickness) to other gray matter voxels by using a neighbour relationship described by the WM distance. This projection-based thickness (PBT) allows the handling of partial volume information, sulcal blurring, and sulcal asymmetries without explicit sulcus reconstruction (<a href="https://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
 
       <h6>Topological correction</h6>
-      <p>In order to repair topological defects we use a novel method that relies on spherical harmonics (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>). First, the original MRI intensity values are used as a basis to select either a &rsquo;fill&rsquo; or &rsquo;cut&rsquo; operation for each topological defect. We modify the spherical map of the uncorrected brain surface mesh, such that certain triangles are favoured while searching for the bounding triangle during reparameterization. Then, a low-pass filtered alternative reconstruction based on spherical harmonics is patched into the reconstructed surface in areas that previously contained defects.</p>
+      <p>In order to repair topological defects we use a novel method that relies on spherical harmonics (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>). First, the original MRI intensity values are used as a basis to select either a &rsquo;fill&rsquo; or &rsquo;cut&rsquo; operation for each topological defect. We modify the spherical map of the uncorrected brain surface mesh, such that certain triangles are favoured while searching for the bounding triangle during reparameterization. Then, a low-pass filtered alternative reconstruction based on spherical harmonics is patched into the reconstructed surface in areas that previously contained defects.</p>
       
       <h6>Spherical mapping</h6>
-      <p>A spherical map of a cortical surface is usually necessary to reparameterize the surface mesh into a common coordinate system to allow inter-subject analysis. We use a fast algorithm to reduce area distortion resulting in an improved reparameterization of the cortical surface mesh (<a href="http://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p>
+      <p>A spherical map of a cortical surface is usually necessary to reparameterize the surface mesh into a common coordinate system to allow inter-subject analysis. We use a fast algorithm to reduce area distortion resulting in an improved reparameterization of the cortical surface mesh (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p>
       
       <h6>Spherical registration</h6>
-      <p>We have adapted the volume-based diffeomorphic Dartel algorithm to the surface (<a href="http://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) to work with spherical maps (<a href="https://www.academia.edu/download/30706385/Yotter02.pdf">Yotter et al. 2011d</a>). We apply a multi-grid approach that uses reparameterized values of sulcal depth and shape index defined on the sphere to estimate a flow field that allows deforming a spherical grid.</p>
+      <p>We have adapted the volume-based diffeomorphic Dartel algorithm to the surface (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) to work with spherical maps (<a href="https://www.academia.edu/download/30706385/Yotter02.pdf">Yotter et al. 2011d</a>). We apply a multi-grid approach that uses reparameterized values of sulcal depth and shape index defined on the sphere to estimate a flow field that allows deforming a spherical grid.</p>
     </div>
     <a href="#RBM" class="button style2 down anchored">Next</a>
   </section>
@@ -182,7 +176,7 @@
       <p>CAT uses an internal interpolation to provide more reliable results even with low resolution images and anisotropic spatial resolutions. Although interpolation cannot add more detail to the images, some processing steps benefit from the higher voxel count, and the strip artefacts commonly seen in modulated images are greatly reduced.</p>
       
       <h6>Denoising</h6>
-      <p>We also use two noise reduction methods to make data processing, and the tissue segmentation in particular, more robust against noise. The first method is a spatial-adaptive Non-Local Means (SANLM) denoising filter and removes noise while maintaining edges (<a href="http://dx.doi.org/10.1002/jmri.22003">Manjon et al. 2010</a>) and is implemented as pre-processing step. The second method is a classical Markov Random Field (MRF) approach, which includes spatial information from adjacent voxels in the segmentation estimation (<a href="http://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) and is part of the AMAP segmentation.</p>
+      <p>We also use two noise reduction methods to make data processing, and the tissue segmentation in particular, more robust against noise. The first method is a spatial-adaptive Non-Local Means (SANLM) denoising filter and removes noise while maintaining edges (<a href="https://dx.doi.org/10.1002/jmri.22003">Manjon et al. 2010</a>) and is implemented as pre-processing step. The second method is a classical Markov Random Field (MRF) approach, which includes spatial information from adjacent voxels in the segmentation estimation (<a href="https://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) and is part of the AMAP segmentation.</p>
       
       <h6>Affine Preprocessing (APP)</h6>
       <p>To improve the initial SPM segmentation, an affine registration is applied to a bias-corrected image, and the intensity range is limited to avoid problems with special protocols. If this preprocessing fails, a more aggressive version is available that applies a rough bias correction and removes non-brain parts of the brain before the affine registration.</p>
@@ -191,15 +185,15 @@
       <p>GM intensity can vary for different regions such as the motor cortex, the basal ganglia, or the occipital lobe. These changes have an anatomical background (e.g. iron content, myelination), but are dependent on the MR-protocol and often lead to GM-underestimations at higher intensities and CSF-overestimations at lower intensities. Therefore, a local intensity transformation of all tissue classes is used to reduce these effects in the image before the final AMAP segmentation. </p>
       
       <h6>Amap Segmentation</h6>
-      <p>The segmentation approach is based on an Adaptive Maximum A Posterior (AMAP) technique without the need for a priori information on the tissue probabilities. This means that the Tissue Probability Maps (TPM) are not constantly used in the sense of the classical Unified Segmentation approach (<a href="http://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner et al. 2005</a>), but only for spatial normalisation, initial skull-stripping, and as initial segmentation estimate. The subsequent AMAP estimation is adaptive in the sense that local variations of the parameters (i.e., means and variance) are modelled as slowly varying spatial functions (<a href="http://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>). This accounts not only for intensity inhomogeneities, but also for other local intensity variations.</p>
+      <p>The segmentation approach is based on an Adaptive Maximum A Posterior (AMAP) technique without the need for a priori information on the tissue probabilities. This means that the Tissue Probability Maps (TPM) are not constantly used in the sense of the classical Unified Segmentation approach (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner et al. 2005</a>), but only for spatial normalisation, initial skull-stripping, and as initial segmentation estimate. The subsequent AMAP estimation is adaptive in the sense that local variations of the parameters (i.e., means and variance) are modelled as slowly varying spatial functions (<a href="https://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>). This accounts not only for intensity inhomogeneities, but also for other local intensity variations.</p>
       
       <h6>Partial Volume Segmentation</h6>
-      <p>In addition, the segmentation approach uses a Partial Volume Estimation (PVE) with a simplified mixed model of a maximum of two tissue types (<a href="http://dx.doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>). We begin with an initial segmentation into three pure classes: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) based on the AMAP estimation described above. The initial segmentation is followed by a PVE consisting of two additional mixed classes: GM-WM and GM-CSF. This results in an estimate of the amount (or fraction) of each pure tissue type that is present in each voxel (since single voxels - given their size - probably contain more than one tissue type) and thus allows for more precise segmentation.</p>
+      <p>In addition, the segmentation approach uses a Partial Volume Estimation (PVE) with a simplified mixed model of a maximum of two tissue types (<a href="https://dx.doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>). We begin with an initial segmentation into three pure classes: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) based on the AMAP estimation described above. The initial segmentation is followed by a PVE consisting of two additional mixed classes: GM-WM and GM-CSF. This results in an estimate of the amount (or fraction) of each pure tissue type that is present in each voxel (since single voxels - given their size - probably contain more than one tissue type) and thus allows for more precise segmentation.</p>
       
       <h6>Skull-Stripping</h6>
       <p>CAT contains a revised graph-cut based skull-stripping.</p>
       
-      <h6>Spatial Normalization</h6>
+      <h6>Spatial Normalisation</h6>
       <p>Another important extension of the SPM segmentation is the integration of the Dartel (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) and the Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) normalisation into the toolbox by already existing DARTEL and Geodesic Shooting templates in MNI space. These templates were derived from 555 healthy control subjects of the <a href="http://www.brain-development.org">IXI-database</a>. Therefore, the creation of sample-specific DARTEL and Geodesic Shooting templates is no longer necessary for most studies.</p>
     </div>
     <a href="#QC" class="button style2 down anchored">Next</a>
@@ -227,25 +221,25 @@
       <p>Gaser C, Dahnke R, Thompson PM, Kurth F, Luders E, Alzheimer&rsquo;s Disease Neuroimaging Initiative (2024). CAT &ndash; A computational anatomy toolbox for the analysis of structural MRI data. <i>GigaScience</i> 13, giae049. <a href="https://doi.org/10.1093/gigascience/giae049">https://doi.org/10.1093/gigascience/giae049</a></p>
       <p>Please also cite the work of the other researchers referenced throughout this page whose methods you use.</p>
     </div>
-    <a href="#Download" class="button style2 down anchored">Next</a>
+    <a href="#DOWNLOAD" class="button style2 down anchored">Next</a>
   </section>
 
 <!-- Download -->
   <section id="DOWNLOAD" class="main style3 center">
-    <div id="download_anchor" class="content container 75%">
+    <div id="download_anchor" class="content container">
       <header>
         <h5>Download</h5>
       </header>
       <p>The CAT toolbox is available to the scientific community under the terms of the GNU General Public License.</p>
       <ul class="actions">
         <li><a href="https://github.com/ChristianGaser/cat12/releases/latest" class="button">Download CAT</a></li>
-        <li><a href="http://dbm.neuro.uni-jena.de/cat12/" class="button">Download older CAT versions</a></li>
+        <li><a href="https://dbm.neuro.uni-jena.de/cat12/" class="button">Download older CAT versions</a></li>
         <li><a href="https://neuro-jena.github.io/cat12-help/" class="button">CAT Manual</a></li>
       </ul>
       <br>
       
       <h5>Requirements</h5><br>
-      <p>CAT is designed to work with <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM12</a> or newer and <a href="http://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required.</p>
+      <p>CAT is designed to work with <a href="https://www.fil.ion.ucl.ac.uk/spm/software/#current/">SPM12</a> or newer and <a href="https://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required.</p>
       
       <h5>Installation</h5><br>
       <ul class="default left">
@@ -279,13 +273,13 @@
 
       <p>Please contact <a href="mailto:christian.gaser@uni-jena.de">me</a> if you need other versions.</p>
     </div>
-    <a href="index.html#About" class="button style2 down anchored">Next</a>
+    <a href="#About" class="button style2 down anchored">Next</a>
   </section>
   
   <section id="CONTACT" class="main style2 center">
     <ul class="style2 center">
       <li>&copy; <a href="mailto:christian.gaser@uni-jena.de">Christian Gaser</a>, Jena University Hospital. All rights reserved.</li>
-      <li>Design Template: <a href="http://html5up.net/">HTML5 UP</a></li>
+      <li>Design Template: <a href="https://html5up.net/">HTML5 UP</a></li>
     </ul>                         
   </section>
 </body></html>
