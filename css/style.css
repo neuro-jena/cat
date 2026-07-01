@@ -67,6 +67,11 @@
         line-height: 1em;
     }
 
+    h6 {
+        font-size: 0.8em;
+        line-height: 1.25em;
+    }
+
     strong, b {
         font-weight: 900;
         color: inherit;
