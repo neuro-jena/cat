@@ -4,8 +4,8 @@
     <title>CAT</title>
     
     <meta charset="UTF-8">
-    <meta name="description" content="CAT is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, and surface-based morphometry.">
-    <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM">
+    <meta name="description" content="CAT is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, surface-based, and region-based morphometry.">
+    <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM, RBM">
     <script type="text/javascript" async="" src="./js/ga.js"></script><script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.poptrox.min.js"></script>    
     <script src="./js/skel.min.js"></script>
@@ -56,8 +56,9 @@
           <li><a href="index.html#SBM">SBM</a></li>                            
           <li><a href="index.html#QC">QC</a></li>                            
           <li><a href="index.html#RBM">RBM</a></li>                       
-          <li><a href="index.html#Features">Features</a></li>                            
-          <li><a href="index.html#DOWNLOAD">Download</a></li>                            
+          <li><a href="index.html#Features">Features</a></li>
+          <li><a href="index.html#CITE">Cite</a></li>
+          <li><a href="index.html#DOWNLOAD">Download</a></li>
       </ul>
     </nav>
 
@@ -84,7 +85,7 @@
         <h5>About</h5>
       </header>
       <p>This toolbox is an extension to <a href="http://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="index.html#VBM">VBM</a>), surface-based morphometry (<a href="index.html#SBM">SBM</a>), deformation-based morphometry (<a href="index.html#DBM">DBM</a>), and region- or label-based morphometry (<a href="index.html#RBM">RBM</a>).</p>
-      <p>It is developed by <a href="http://www.neuro.uni-jena.de/people/christian-gaser/">Christian Gaser</a> and <a href="http://www.neuro.uni-jena.de/people/robert-dahnke/">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and free but copyright software, distributed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+      <p>It is developed by <a href="http://www.neuro.uni-jena.de/people/christian-gaser/">Christian Gaser</a> and <a href="http://www.neuro.uni-jena.de/people/robert-dahnke/">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and is free but copyrighted software, distributed under the terms of the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
     </div>
     <a href="index.html#VBM" class="button style2 down anchored">Next</a>
   </section>
@@ -195,7 +196,20 @@
         <h5>Quality control (QC)</h5>
       </header>
       <p>Preprocessing of magnetic resonance (MR) images strongly depends on the quality of the input data. Especially multi-center studies and data-sharing projects need to take into account varying image properties due to different scanners, sequences and protocols.</p>
-      <p>CAT introduces a novel retrospective QC framework for empirical quantification of quality differences in different scans or studies. Retrospective QC allows the evaluation of essential image parameters such as noise, inhomogeneities, and image resolution. All these quality measures will be scaled to a rating scale which easily allows to compare measures across different scanners and sequences. Furthermore, quality measures are summarised to a single quality rating.</p>
+      <p>CAT introduces a novel retrospective QC framework for empirical quantification of quality differences in different scans or studies. Retrospective QC allows the evaluation of essential image parameters such as noise, inhomogeneities, and image resolution. All these quality measures will be scaled to a rating scale which easily allows to compare measures across different scanners and sequences. Furthermore, quality measures are summarised into a single rating on an intuitive A&ndash;F scale.</p>
+    </div>
+    <a href="#CITE" class="button style2 down anchored">Next</a>
+  </section>
+
+<!-- How to cite -->
+  <section id="CITE" class="main style2 left light">
+    <div id="CITE_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
+      <header>
+        <h5>How to cite</h5>
+      </header>
+      <p>If you use CAT in your work, please cite the main reference:</p>
+      <p>Gaser C, Dahnke R, Thompson PM, Kurth F, Luders E, Alzheimer&rsquo;s Disease Neuroimaging Initiative (2024). CAT &ndash; A computational anatomy toolbox for the analysis of structural MRI data. <i>GigaScience</i> 13, giae049. <a href="https://doi.org/10.1093/gigascience/giae049">https://doi.org/10.1093/gigascience/giae049</a></p>
+      <p>Please also cite the work of the other researchers referenced throughout this page whose methods you use.</p>
     </div>
     <a href="#Download" class="button style2 down anchored">Next</a>
   </section>
