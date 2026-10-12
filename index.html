@@ -1,285 +1,512 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>CAT</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CAT – Computational Anatomy Toolbox for SPM</title>
+  <meta name="description" content="CAT is a free toolbox for SPM that combines voxel-based morphometry (VBM), surface-based analysis of cortical thickness and folding, mapping of fMRI data to the cortical surface, and atlas-based ROI analysis of structural MRI in one automated pipeline.">
+  <link rel="canonical" href="https://neuro-jena.github.io/cat/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1113" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CAT is a Computational Anatomy Toolbox for SPM that provides voxel-based, deformation-based, surface-based, and region-based morphometry.">
-    <meta name="keywords" content="cat12, voxel-based morphometry, surface-based morphometry, VBM, DBM, SBM, RBM">
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/jquery.poptrox.min.js"></script>    
-    <script src="./js/skel.min.js"></script>
-    <script src="./js/init.js"></script> 
-    <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.form.js"></script>
-    
-<!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CPSPL0H05"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-4CPSPL0H05');
-    </script>
-    
-    <noscript>
-      <link rel="stylesheet" href="css/skel.css" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link rel="stylesheet" href="css/style-wide.css" />
-      <link rel="stylesheet" href="css/style-normal.css" />
-    </noscript>
-                
-  </head>
-  <body>
+  <!-- Link previews (Slack, Mastodon, LinkedIn, ...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAT – Computational Anatomy Toolbox">
+  <meta property="og:title" content="CAT – Computational Anatomy Toolbox for SPM">
+  <meta property="og:description" content="Voxel-, surface- and region-based analysis of structural brain MRI in one automated, free toolbox.">
+  <meta property="og:url" content="https://neuro-jena.github.io/cat/">
+  <meta property="og:image" content="https://neuro-jena.github.io/cat/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-<!-- Header -->
-  <header id="header" class="loading">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/main.js" defer></script>
 
-<!-- Logo -->
-    <h1 id="logo"><a href="index.html">CAT</a></h1>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CAT – Computational Anatomy Toolbox",
+    "alternateName": ["CAT26", "CAT12"],
+    "softwareVersion": "26.0",
+    "applicationCategory": "Neuroimaging software",
+    "operatingSystem": "Windows, macOS, Linux",
+    "softwareRequirements": "SPM12 or newer with MATLAB, or the free MATLAB Runtime (standalone version)",
+    "license": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+    "url": "https://neuro-jena.github.io/cat/",
+    "downloadUrl": "https://github.com/ChristianGaser/cat12/releases/latest",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "author": [
+      { "@type": "Person", "name": "Christian Gaser" },
+      { "@type": "Person", "name": "Robert Dahnke" }
+    ],
+    "citation": "https://doi.org/10.1093/gigascience/giae049"
+  }
+  </script>
+  <!-- No analytics, no cookies, no third-party requests: everything is served from this site. -->
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Nav -->
-    <nav id="nav">
-      <ul>
-        <li><a href="https://neuro-jena.github.io">Structural Brain Mapping Group</a></li>
-        <li><a href="#About">About</a></li>
-          <li><a href="#VBM">VBM</a></li>                            
-          <li><a href="#DBM">DBM</a></li>                            
-          <li><a href="#SBM">SBM</a></li>                            
-          <li><a href="#QC">QC</a></li>                            
-          <li><a href="#RBM">RBM</a></li>                       
-          <li><a href="#Features">Features</a></li>
-          <li><a href="#CITE">Cite</a></li>
-          <li><a href="#DOWNLOAD">Download</a></li>
-      </ul>
-    </nav>
-
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="CAT – Computational Anatomy Toolbox, back to top">
+        <img src="assets/img/logo.webp" width="247" height="120" alt="">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#analyses">Analyses</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#new">What’s new</a></li>
+          <li><a href="#cite">Cite</a></li>
+          <li><a href="https://neuro-jena.github.io/cat12-help/">Manual</a></li>
+        </ul>
+        <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="INTRO" class="main style1 light fullscreen">
-    <div class="content container">
-      <header>
-        <h3><br></h3>
-        <h2>CAT</h2>
-        <h3>A Computational Anatomy <br>Toolbox for SPM</h3>
-        <h3><br></h3>
-      </header>                    
-      <footer>                        
-        <a href="#About" class="button style2 down">More</a>
-      </footer>
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="top" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <a class="pill" href="#new"><span class="pill-tag">New</span> CAT26.0: faster surfaces, surface area, new QC <span aria-hidden="true">→</span></a>
+          <p class="eyebrow">Computational Anatomy Toolbox for SPM</p>
+          <h1>Voxels, surfaces and regions. <span class="accent">One toolbox.</span></h1>
+          <p class="lead">CAT turns T1-weighted MRI scans into gray-matter maps, cortical surfaces with thickness and folding measures, and atlas-based regional values. It is fully automated, with quality control and statistics built in.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#download">Download CAT26</a>
+            <a class="btn btn-ghost" href="https://neuro-jena.github.io/cat12-help/#quick">Quick start guide</a>
+          </div>
+          <ul class="facts">
+            <li>Free &amp; open source (GPL)</li>
+            <li>Windows, macOS &amp; Linux</li>
+            <li>With MATLAB or standalone</li>
+            <li>BIDS &amp; parallel processing</li>
+          </ul>
+          <!-- Optional social proof: fill in real numbers before enabling.
+          <ul class="stats">
+            <li><strong>N,000+</strong> citing studies</li>
+            <li><strong>XX min</strong> per subject incl. surfaces</li>
+            <li><strong>20</strong> atlases included</li>
+          </ul> -->
+        </div>
+        <figure class="hero-media">
+          <img src="assets/img/hero.webp" width="1600" height="882" fetchpriority="high"
+               alt="CAT running in SPM: the CAT menu, a single-subject report with quality ratings and tissue segmentation, and cortical thickness results on brain surfaces">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Analyses -->
+    <section id="analyses" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Analyses</p>
+          <h2>One scan, one run, many ways to analyze it</h2>
+          <p class="section-lead">A single preprocessing run gives you voxel-, surface- and region-based data. All of it comes from the same tissue segmentation, so your results are consistent across methods.</p>
+        </header>
+
+        <div class="flow">
+          <div class="flow-step">
+            <span class="flow-k">Input</span>
+            <strong>T1-weighted MRI</strong>
+            <span>Single scans, longitudinal series or BIDS datasets</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true"></span>
+          <div class="flow-step flow-cat">
+            <span class="flow-k">CAT</span>
+            <strong>One automated run</strong>
+            <ul class="tags">
+              <li>Denoising</li><li>Segmentation</li><li>Registration</li><li>Surface reconstruction</li><li>Quality rating</li>
+            </ul>
+          </div>
+          <span class="flow-arrow" aria-hidden="true"></span>
+          <ul class="flow-out">
+            <li><a href="#vbm"><strong>Voxel-based</strong><span>Gray &amp; white matter maps</span></a></li>
+            <li><a href="#surface"><strong>Surface-based</strong><span>Thickness, folding, mapped fMRI</span></a></li>
+            <li><a href="#regions"><strong>Region-based</strong><span>Volume &amp; surface atlases</span></a></li>
+            <li><a href="#quality"><strong>Quality report</strong><span>A–F rating for every scan</span></a></li>
+          </ul>
+        </div>
+
+        <!-- VBM -->
+        <article id="vbm" class="feature">
+          <div class="feature-text">
+            <p class="eyebrow">Voxel-based morphometry</p>
+            <h3>Map gray and white matter, voxel by voxel</h3>
+            <p>CAT segments each brain into gray matter, white matter and CSF with partial-volume precision, then registers it to MNI space with Dartel or Geodesic Shooting. Ready-made templates from 555 healthy subjects mean you don’t need study-specific templates for most studies.</p>
+            <ul class="checks">
+              <li>Modulated tissue maps, ready for statistics in SPM</li>
+              <li>Total intracranial volume (TIV) and global tissue volumes</li>
+              <li>Longitudinal models for plasticity, aging and development</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#basic_vbm">VBM in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <div class="tiles">
+              <figure><img src="assets/img/vbm-t1.webp" width="159" height="125" loading="lazy" alt="Sagittal T1-weighted MRI"><figcaption>T1 image</figcaption></figure>
+              <figure><img src="assets/img/vbm-gm.webp" width="159" height="125" loading="lazy" alt="Gray matter segment"><figcaption>Gray matter</figcaption></figure>
+              <figure><img src="assets/img/vbm-wm.webp" width="159" height="125" loading="lazy" alt="White matter segment"><figcaption>White matter</figcaption></figure>
+              <figure><img src="assets/img/vbm-csf.webp" width="159" height="125" loading="lazy" alt="CSF segment"><figcaption>CSF</figcaption></figure>
+              <figure><img src="assets/img/vbm-label.webp" width="159" height="125" loading="lazy" alt="Color-coded tissue label map"><figcaption>Label map</figcaption></figure>
+            </div>
+          </figure>
+        </article>
+
+        <!-- Surfaces -->
+        <article id="surface" class="feature reverse">
+          <div class="feature-text">
+            <p class="eyebrow">Surface-based morphometry</p>
+            <h3>Cortical thickness and folding, fully automated</h3>
+            <p>CAT reconstructs the central cortical surface and measures thickness in one step, directly from the tissue segmentation (projection-based thickness). No manual editing is needed. In CAT26, the surface pipeline is faster and creates topology-correct surfaces from the start.</p>
+            <ul class="checks">
+              <li>Cortical thickness</li>
+              <li>Folding: gyrification, sulcal depth and cortical complexity (fractal dimension)</li>
+              <li><span class="badge">New</span> Surface area</li>
+              <li>Spherical registration to standard 164k or 32k (HCP) meshes for group statistics</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#sbm">Surface analysis in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <img src="assets/img/surface-measures.webp" width="768" height="170" loading="lazy" alt="Curvature, cortical thickness and sulcal depth mapped onto the left hemisphere">
+            <figcaption class="captions3"><span>Curvature</span><span>Thickness</span><span>Sulcal depth</span></figcaption>
+          </figure>
+        </article>
+
+        <!-- Surface mapping -->
+        <article id="mapping" class="feature wide">
+          <div class="feature-text">
+            <p class="eyebrow">Surface mapping</p>
+            <h3>Bring fMRI and other volume data to the cortex</h3>
+            <p>Map fMRI contrasts or any other volume data, such as myelin-sensitive or quantitative maps, onto each subject’s own cortical surface and benefit from surface-based smoothing and registration. Results that are already in MNI space can be projected onto the template surface.</p>
+          </div>
+          <div class="feature-text">
+            <ul class="checks">
+              <li>Sampling at chosen cortical depths (equi-distance or equi-volume)</li>
+              <li>The same surface statistics and displays as for thickness</li>
+              <li>Show VBM results on the cortical surface, too</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#surf_proc">Surface mapping in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <div class="swipe"><picture><source srcset="assets/img/surface-schematic-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/surface-schematic.webp" width="947" height="292" loading="lazy" alt="Schematic of the cortical ribbon showing the measures CAT derives: thickness and area, data sampled from fMRI, structural and diffusion MRI, and folding measures such as curvature and sulcal depth"></picture></div>
+            <figcaption>Measures on and around the cortical surface: thickness and area, values sampled from fMRI, structural or diffusion data, and folding.</figcaption>
+          </figure>
+        </article>
+
+        <!-- Regions -->
+        <article id="regions" class="feature">
+          <div class="feature-text">
+            <p class="eyebrow">Region-based morphometry</p>
+            <h3>Regional values from volume and surface atlases</h3>
+            <p>Atlases are mapped to each brain through CAT’s spatial registration. For every subject, you get regional tissue volumes and regional surface values (thickness, folding or mapped data), ready to export as CSV.</p>
+            <div class="chip-group">
+              <h4>Volume atlases</h4>
+              <ul class="chips">
+                <li>Neuromorphometrics</li><li>LPBA40</li><li>Hammers</li><li>AAL3</li><li>CoBrA</li><li>IBSR</li><li>Mori</li><li>Anatomy 3</li><li>Julich-Brain 3</li><li>Schaefer 100–600</li><li>Tian subcortex</li><li>Thalamus</li><li>Thalamic nuclei</li><li>Hypothalamus</li><li>SUIT cerebellum</li>
+              </ul>
+            </div>
+            <div class="chip-group">
+              <h4>Surface atlases</h4>
+              <ul class="chips">
+                <li>Desikan-Killiany</li><li>Destrieux</li><li>HCP-MMP1</li><li>Julich-Brain 3.1</li><li>Schaefer 100–600</li>
+              </ul>
+            </div>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#roi">ROI analysis in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <img src="assets/img/atlases.webp" width="722" height="174" loading="lazy" alt="Three cortical parcellations shown on CAT’s template surface">
+            <figcaption class="captions3"><span>Desikan-Killiany</span><span>Destrieux</span><span>Neuromorphometrics</span></figcaption>
+          </figure>
+        </article>
+
+        <!-- Quality -->
+        <article id="quality" class="feature wide">
+          <div class="feature-text">
+            <p class="eyebrow">Quality control</p>
+            <h3>Know your data quality before you analyze it</h3>
+            <p>Every scan gets a one-page report with tissue volumes, surface measures and image-quality ratings. Noise, bias and resolution are combined into one grade from A (excellent) to F (failed) that you can compare across scanners, sequences and sites.</p>
+          </div>
+          <div class="feature-text">
+            <ul class="checks">
+              <li>Automatic quality rating (SIQR) for every scan</li>
+              <li>Sample homogeneity check flags outliers before statistics</li>
+              <li>Built for multi-site and large-scale studies</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#qc">Quality control in the manual</a>
+          </div>
+          <figure class="feature-media natural">
+            <div class="swipe"><picture><source srcset="assets/img/qc-scale-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/qc-scale.webp" width="751" height="196" loading="lazy" alt="CAT quality rating scale: noise, bias and resolution measures mapped to grades from A (excellent) to F (unacceptable)"></picture></div>
+            <figcaption>Noise, bias and resolution map onto one common A–F scale.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="section alt">
+      <div class="container approach">
+        <header class="approach-intro">
+          <p class="eyebrow">Approach</p>
+          <h2>One segmentation, many measures</h2>
+          <p>Voxel-based and surface-based analyses are often carried out with separate software packages, each with its own segmentation, registration, coordinate space and quality checks. Combining their results means reconciling different processing streams.</p>
+          <p>CAT is built around a single processing stream instead. Gray-matter maps, cortical surfaces and regional values are all derived from the same tissue segmentation within one automated run, so voxel-, surface- and region-based results can be compared directly.</p>
+          <p class="approach-ref">The methods are described in detail in <a href="https://doi.org/10.1093/gigascience/giae049">Gaser et al. (2024), <i>GigaScience</i></a>.</p>
+        </header>
+        <ol class="principles">
+          <li>
+            <h3>Consistent across methods</h3>
+            <p>Gray-matter maps, cortical surfaces and regional values all come from one segmentation with partial-volume estimation, so volumes, surfaces and atlas regions refer to the same delineation of the cortex.</p>
+          </li>
+          <li>
+            <h3>Surfaces without manual editing</h3>
+            <p>Cortical thickness and the central surface are estimated in one step from the segmentation (projection-based thickness), and topological defects are corrected automatically. Surface reconstruction is part of the same run, not a separate processing stream.</p>
+          </li>
+          <li>
+            <h3>Quality is measured, not assumed</h3>
+            <p>Every scan is rated for noise, bias and resolution on a common scale from A to F. A sample homogeneity check identifies outliers before the statistical analysis.</p>
+          </li>
+          <li>
+            <h3>Robust for real-world data</h3>
+            <p>Denoising, local adaptive segmentation and partial-volume estimation handle noise, intensity inhomogeneities and challenging sequences such as MP2RAGE. Longitudinal models are tailored to plasticity, aging and development.</p>
+          </li>
+          <li>
+            <h3>Statistics within SPM</h3>
+            <p>Voxel- and surface-based models are set up and estimated in SPM, with threshold-free cluster enhancement (TFCE) and display of results on slices or on the cortical surface.</p>
+          </li>
+          <li>
+            <h3>Open and portable</h3>
+            <p>CAT is free software under the GNU GPL. It runs on Windows, macOS and Linux, from the GUI, in batch mode or from the command line, with MATLAB or as a standalone version without a license. BIDS input and parallel processing support large cohorts, and a standardized <a href="https://neuro-jena.github.io/enigma-cat12/">ENIGMA protocol</a> is available.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section id="workflow" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Workflow</p>
+          <h2>From scans to results in four steps</h2>
+        </header>
+        <ol class="steps">
+          <li>
+            <span class="step-n" aria-hidden="true">1</span>
+            <h3>Install</h3>
+            <p>Copy CAT into SPM’s toolbox folder, or use the standalone version without MATLAB.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">2</span>
+            <h3>Preprocess</h3>
+            <p>Select your T1 images or a BIDS dataset and run <em>Segment</em>. CAT processes subjects in parallel.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">3</span>
+            <h3>Check quality</h3>
+            <p>Review each scan’s report and rating, and check sample homogeneity to catch outliers.</p>
+          </li>
+          <li>
+            <span class="step-n" aria-hidden="true">4</span>
+            <h3>Analyze</h3>
+            <p>Run voxel-, surface- or ROI-based statistics and show results on slices or on the cortical surface.</p>
+          </li>
+        </ol>
+        <div class="center-row">
+          <a class="btn btn-primary" href="https://neuro-jena.github.io/cat12-help/#quick">Quick start guide</a>
+          <a class="btn btn-ghost" href="https://neuro-jena.github.io/cat12-help/">Full manual</a>
+        </div>
+
+        <details class="under-hood">
+          <summary>Under the hood: the preprocessing pipeline</summary>
+          <div class="under-hood-body">
+            <picture><source srcset="assets/img/pipeline-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/pipeline.webp" width="1400" height="785" loading="lazy" alt="CAT processing pipeline: initial voxel-based processing, refined voxel-based processing, and surface-based processing"></picture>
+            <dl class="methods">
+              <dt>Denoising</dt>
+              <dd>Spatially adaptive non-local means filter (<a href="https://doi.org/10.1002/jmri.22003">Manjón et al. 2010</a>) and a Markov random field within the segmentation (<a href="https://doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>).</dd>
+              <dt>Intensity correction</dt>
+              <dd>Affine preprocessing (APP) and local adaptive segmentation (LAS) correct bias and regional intensity variations, e.g. in motor cortex or basal ganglia.</dd>
+              <dt>Segmentation</dt>
+              <dd>Adaptive maximum a posteriori (AMAP) estimation (<a href="https://doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) with partial-volume estimation (<a href="https://doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>) and graph-cut skull-stripping.</dd>
+              <dt>Registration</dt>
+              <dd>Dartel (<a href="https://doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) or Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) to templates in MNI152NLin2009cAsym space.</dd>
+              <dt>Surfaces</dt>
+              <dd>Projection-based thickness (<a href="https://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>), topology correction (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>), spherical mapping (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>) and spherical registration (<a href="https://www.academia.edu/download/30706385/Yotter02.pdf">Yotter et al. 2011d</a>).</dd>
+              <dt>Folding measures</dt>
+              <dd>Gyrification via absolute mean curvature (<a href="https://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>), sulcal depth, and cortical complexity via fractal dimension (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>).</dd>
+              <dt>Quality assessment</dt>
+              <dd>Ratings for noise, bias and resolution (<a href="https://doi.org/10.1093/gigascience/giaf146">Dahnke et al. 2025</a>).</dd>
+            </dl>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- What's new -->
+    <section id="new" class="section alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">What’s new</p>
+          <h2>CAT26.0</h2>
+          <p class="section-lead">Released October 2026. CAT now uses year-based version numbers, and the toolbox folder inside <code>spm/toolbox</code> is now called <code>CAT</code>.</p>
+        </header>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Faster, more robust surfaces</h3>
+            <p>An improved marching-cubes reconstruction creates topology-correct surfaces directly, for faster processing and more robust thickness estimates.</p>
+          </article>
+          <article class="card">
+            <h3>Surface area</h3>
+            <p>The much-requested per-vertex surface area is now available as an additional measure in <em>Extract Additional Surface Parameters</em>.</p>
+          </article>
+          <article class="card">
+            <h3>More robust VBM</h3>
+            <p>A comprehensively updated volume pipeline with more accurate affine registration, especially for challenging acquisitions such as MP2RAGE.</p>
+          </article>
+          <article class="card">
+            <h3>Updated quality metrics</h3>
+            <p>The quality assessment now follows <a href="https://doi.org/10.1093/gigascience/giaf146">Dahnke et al. 2025</a>, and the former IQR rating is replaced by SIQR.</p>
+          </article>
+          <article class="card">
+            <h3>New volume tools</h3>
+            <p>Average rescans, e.g. to reduce motion artifacts, and run image calculations on many subjects at once, e.g. for T1w/T2w ratios.</p>
+          </article>
+          <article class="card">
+            <h3>Searchable manual</h3>
+            <p>Find options and methods quickly with the new search in the online manual.</p>
+          </article>
+        </div>
+        <p class="center-row"><a class="more" href="https://neuro-jena.github.io/cat12-help/#version">Full release notes</a></p>
+      </div>
+    </section>
+
+    <!-- Cite -->
+    <section id="cite" class="section">
+      <div class="container narrow">
+        <header class="section-head">
+          <p class="eyebrow">Cite</p>
+          <h2>How to cite CAT</h2>
+        </header>
+        <p>If you use CAT in your work, please cite the main reference:</p>
+        <blockquote class="citation" id="citation-text">Gaser C, Dahnke R, Thompson PM, Kurth F, Luders E, Alzheimer’s Disease Neuroimaging Initiative (2024). CAT: a computational anatomy toolbox for the analysis of structural MRI data. <i>GigaScience</i> 13, giae049. <a href="https://doi.org/10.1093/gigascience/giae049">https://doi.org/10.1093/gigascience/giae049</a></blockquote>
+        <div class="cite-actions">
+          <button class="btn btn-ghost btn-sm" type="button" data-copy="#citation-text">Copy citation</button>
+          <button class="btn btn-ghost btn-sm" type="button" data-copy="#bibtex">Copy BibTeX</button>
+        </div>
+        <details class="bibtex">
+          <summary>Show BibTeX</summary>
+<pre id="bibtex">@article{Gaser2024CAT,
+  author  = {Gaser, Christian and Dahnke, Robert and Thompson, Paul M. and
+             Kurth, Florian and Luders, Eileen and
+             {Alzheimer's Disease Neuroimaging Initiative}},
+  title   = {{CAT}: a computational anatomy toolbox for the analysis
+             of structural {MRI} data},
+  journal = {GigaScience},
+  volume  = {13},
+  pages   = {giae049},
+  year    = {2024},
+  doi     = {10.1093/gigascience/giae049}
+}</pre>
+        </details>
+        <p class="muted">Please also cite the methods you use. The references are listed in the pipeline overview above and in the manual.</p>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="section alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Download</p>
+          <h2>Get CAT26</h2>
+          <p class="section-lead">Free for the scientific community under the GNU General Public License.</p>
+        </header>
+        <div class="grid-2">
+          <article class="card dl-card">
+            <h3>For MATLAB users</h3>
+            <p>Install CAT as an SPM toolbox to use every feature, including parallel processing and the interactive GUI.</p>
+            <a class="btn btn-primary" href="https://github.com/ChristianGaser/cat12/releases/latest">Download CAT26</a>
+            <h4>Requirements</h4>
+            <ul class="checks">
+              <li>SPM12 or newer</li>
+              <li>MATLAB R2020a or newer (Windows: R2022a, Apple Silicon: R2023b)</li>
+              <li>No additional MATLAB toolboxes</li>
+            </ul>
+            <h4>Installation</h4>
+            <ol class="install">
+              <li>Remove any old <code>cat12</code> or <code>CAT</code> folder from <code>spm/toolbox</code>.</li>
+              <li>Unzip the download and copy the <code>CAT</code> folder into <code>spm/toolbox</code>.</li>
+              <li>Restart SPM and open CAT from the Toolbox menu, or type <code>CAT</code> in the MATLAB command window.</li>
+              <li>Later, use CAT’s built-in update function to check for new versions.</li>
+            </ol>
+          </article>
+          <article class="card dl-card">
+            <h3>Standalone, no MATLAB license</h3>
+            <p>Runs with the free MATLAB Runtime R2023b (v232) and is mainly intended for scripted, headless use on servers and clusters. Some features, such as parallelization and the interactive help, are not available.</p>
+            <table class="dl-table">
+              <thead><tr><th scope="col">System</th><th scope="col">CAT26</th><th scope="col">MATLAB Runtime</th></tr></thead>
+              <tbody>
+                <tr data-os="linux"><th scope="row">Linux</th><td><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Linux.zip">Download</a></td><td><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_10_glnxa64.zip">R2023b</a></td></tr>
+                <tr data-os="mac-intel"><th scope="row">macOS (Intel)</th><td><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac.zip">Download</a></td><td><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maci64/MATLAB_Runtime_R2023b_Update_10_maci64.dmg.zip">R2023b</a></td></tr>
+                <tr data-os="mac-arm"><th scope="row">macOS (Apple Silicon)</th><td><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac_arm64.zip">Download</a></td><td><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maca64/MATLAB_Runtime_R2023b_Update_10_maca64.dmg">R2023b</a></td></tr>
+                <tr data-os="windows"><th scope="row">Windows</th><td><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Win.zip">Download</a></td><td><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/win64/MATLAB_Runtime_R2023b_Update_10_win64.zip">R2023b</a></td></tr>
+              </tbody>
+            </table>
+            <p class="muted">Examples for calling CAT from shell scripts: <a href="https://neuro-jena.github.io/enigma-cat12/#standalone">standalone guide</a>.</p>
+          </article>
+        </div>
+        <p class="dl-more">Older versions: <a href="https://github.com/ChristianGaser/cat12/releases">GitHub releases</a> · <a href="https://dbm.neuro.uni-jena.de/cat12/">CAT12.9 and earlier</a> · Developer version: <a href="https://github.com/ChristianGaser/cat12">GitHub</a> · Need another build? <a href="mailto:christian.gaser@uni-jena.de">Contact us</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <img src="assets/img/logo.webp" width="247" height="120" alt="CAT – Computational Anatomy Toolbox">
+        <p>Developed by Christian Gaser and Robert Dahnke, Structural Brain Mapping Group, Jena University Hospital (Departments of Psychiatry and Neurology).</p>
+      </div>
+      <nav aria-label="Resources">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://neuro-jena.github.io/cat12-help/">Manual</a></li>
+          <li><a href="https://neuro-jena.github.io/cat12-help/#quick">Quick start guide</a></li>
+          <li><a href="https://neuro-jena.github.io/cat12-help/#version">Release notes</a></li>
+          <li><a href="https://neuro-jena.github.io/enigma-cat12/">ENIGMA protocol</a></li>
+          <li><a href="https://neuro-jena.github.io/software.html#tfce">TFCE toolbox</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Get help">
+        <h2>Get help</h2>
+        <ul>
+          <li><a href="https://github.com/ChristianGaser/cat12/issues">Report an issue</a></li>
+          <li><a href="https://github.com/ChristianGaser/cat12">Source code</a></li>
+          <li><a href="mailto:christian.gaser@uni-jena.de">Email</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Group">
+        <h2>Group</h2>
+        <ul>
+          <li><a href="https://neuro-jena.github.io">Structural Brain Mapping Group</a></li>
+          <li><a href="https://neuro-jena.github.io/people.html">People</a></li>
+          <li><a href="https://neuro-jena.github.io/disclaimer.html">Legal notice</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
-       
-<!-- About -->
-  <section id="About" class="main style2 fullscreen light">            
-    <div id="About_anchor" class="content container">
-      <header>
-        <h5>About</h5>
-      </header>
-      <p>This toolbox is an extension to <a href="https://www.fil.ion.ucl.ac.uk/spm/software/#current/">SPM</a> (Wellcome Department of Cognitive Neurology) to provide computational anatomy. This covers diverse morphometric methods such as voxel-based morphometry (<a href="#VBM">VBM</a>), surface-based morphometry (<a href="#SBM">SBM</a>), deformation-based morphometry (<a href="#DBM">DBM</a>), and region- or label-based morphometry (<a href="#RBM">RBM</a>).</p>
-      <p>It is developed by <a href="https://neuro-jena.github.io/people.html">Christian Gaser</a> and <a href="https://neuro-jena.github.io/people.html">Robert Dahnke</a> (Jena University Hospital, Departments of <a href="http://www.psychiatrie.uniklinikum-jena.de/Startseite/Startseite.html">Psychiatry</a> and <a href="http://www.neuro.uniklinikum-jena.de/Neurologie.html">Neurology</a>) and is free but copyrighted software, distributed under the terms of the <a href="https://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License</a> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</p>
+    <div class="container footer-bottom">
+      <p>© 2026 Christian Gaser, Jena University Hospital. CAT is free software under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v2</a> or later. This site uses no cookies and no analytics.</p>
     </div>
-    <a href="#VBM" class="button style2 down anchored">Next</a>
-  </section>
-    
-<!-- VBM -->
-  <section id="VBM" class="main style2 left light">                 
-    <div id="VBM_anchor" class="content box left" style="color: #444; background-color: #aaa; background: rgba(220, 222, 224, 0.9);">
-      <header>
-        <h5>Voxel-based morphometry (VBM)</h5>
-      </header>
-      <p>VBM provides the voxel-wise estimation of the local amount or volume of a specific tissue compartment (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner 2005</a>). VBM is most often applied to investigate the local distribution of grey matter, but can also be used to examine white matter. However, it is less sensitive to white-matter effects, for which methods such as DTI are better suited.</p>
-      <p>The concept of VBM incorporates different preprocessing steps: (1) spatial registration to a reference brain (template), (2) tissue classification (segmentation) into grey and white matter and CSF, and (3) bias correction of intensity non-uniformities. Finally, segmentations are modulated by scaling with the amount of volume changes due to spatial registration, so that the total amount of grey matter in the modulated image remains the same as it would be in the original image.</p>
-    </div>
-    <a href="#DBM" class="button style2 down anchored">Next</a>
-  </section>
-    
-<!-- DBM -->
-  <section id="DBM" class="main style2 right light">                  
-    <div id="DBM_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
-      <header>
-        <h5>Deformation-based morphometry (DBM)</h5>
-      </header>
-      <p>DBM is based on the application of non-linear registration procedures to spatially normalise one brain to another. The simplest case of spatial registration is to correct the orientation and size of the brains. In addition to these global changes, a non-linear registration is necessary to minimise the remaining regional differences by means of local deformations. Once this local adaptation succeeds, the deformations encode the type and localisation of the structural differences between the brains and can undergo subsequent analysis.</p>
-      <p>A map of local volume changes can then be quantified by a mathematical property of these deformations - the Jacobian determinant. This parameter is well known from continuum mechanics and is usually used for the analysis of volume changes in flowing liquids or gases. The Jacobian determinant allows a direct estimation of the percentage change in volume in each voxel and can be statistically analysed (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI01.pdf">Gaser et al. 2001</a>). This approach is also known as tensor-based morphometry because the Jacobian determinant represents such a tensor.</p>
-<!--                    
-  <p>A deformation-based analysis can be carried out not only on the local changes in volume but also on the entire information of the deformations, which also includes the direction and strength of the local deformations (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>). Since each voxel contains three-dimensional information, a multivariate statistical test is necessary for analysis. A multivariate general linear model or Hotelling&rsquo;s T2 test is commonly used for this type of analysis (<a href="https://www.neuro.uni-jena.de/pdf-files/Gaser-NI99.pdf">Gaser et al. 1999</a>).</p>
--->
-    </div>
-    <a href="#SBM" class="button style2 down anchored">Next</a>
-  </section>
-                          
-<!-- SBM -->
-  <section id="SBM" class="main style2 left light">                 
-    <div id="SBM_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
-      <header>
-        <h5>Surface-based morphometry (SBM)</h5>
-      </header>
-      <p>CAT additionally includes the estimation of the cortical thickness and central surface of the left and right hemispheres based on the projection-based thickness (PBT) method (<a href="https://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
-      <p>Furthermore, the surface pipeline uses topology correction (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>) and spherical mapping (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p> 
-      <p>Surface-based morphometry has several advantages over using volumetric data alone. For instance, brain surface meshes have been shown to increase the accuracy of brain registration compared with Talairach registration (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.03.024">Desai et al. 2005</a>, <a href="https://doi.org/10.1038/s41598-020-62832-z">Brodoehl et al. 2020</a>). Brain surface meshes also permit new forms of analyses, such as gyrification indices that measure surface complexity in 3D (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-NI11.pdf">Yotter et al. 2011c</a>), local gyrification (<a href="https://www.neuro.uni-jena.de/pdf-files/Luders-NI06.pdf">Luders et al. 2006</a>) or cortical thickness. Furthermore, inflation or spherical mapping of the cortical surface mesh raises the buried sulci to the surface so that mapped functional activity in these regions can be easily visualised.</p>
-      
-      <h6>Cortical thickness and central surface estimation</h6>
-      <p>We use a fully automated method that allows for measurement of cortical thickness and reconstructions of the central surface in one step. It uses a tissue segmentation to estimate the white matter (WM) distance, then projects the local maxima (which is equal to the cortical thickness) to other gray matter voxels by using a neighbour relationship described by the WM distance. This projection-based thickness (PBT) allows the handling of partial volume information, sulcal blurring, and sulcal asymmetries without explicit sulcus reconstruction (<a href="https://www.neuro.uni-jena.de/pdf-files/Dahnke-NI12.pdf">Dahnke et al. 2012</a>).</p>
-
-      <h6>Topological correction</h6>
-      <p>In order to repair topological defects we use a novel method that relies on spherical harmonics (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-HBM10.pdf">Yotter et al. 2011a</a>). First, the original MRI intensity values are used as a basis to select either a &rsquo;fill&rsquo; or &rsquo;cut&rsquo; operation for each topological defect. We modify the spherical map of the uncorrected brain surface mesh, such that certain triangles are favoured while searching for the bounding triangle during reparameterization. Then, a low-pass filtered alternative reconstruction based on spherical harmonics is patched into the reconstructed surface in areas that previously contained defects.</p>
-      
-      <h6>Spherical mapping</h6>
-      <p>A spherical map of a cortical surface is usually necessary to reparameterize the surface mesh into a common coordinate system to allow inter-subject analysis. We use a fast algorithm to reduce area distortion resulting in an improved reparameterization of the cortical surface mesh (<a href="https://www.neuro.uni-jena.de/pdf-files/Yotter-JoN10.pdf">Yotter et al. 2011b</a>).</p>
-      
-      <h6>Spherical registration</h6>
-      <p>We have adapted the volume-based diffeomorphic Dartel algorithm to the surface (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) to work with spherical maps (<a href="https://www.academia.edu/download/30706385/Yotter02.pdf">Yotter et al. 2011d</a>). We apply a multi-grid approach that uses reparameterized values of sulcal depth and shape index defined on the sphere to estimate a flow field that allows deforming a spherical grid.</p>
-    </div>
-    <a href="#RBM" class="button style2 down anchored">Next</a>
-  </section>
-
-<!-- RBM -->  
-  <section id="RBM" class="main style2 right light">                 
-    <div id="RBM_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
-      <header>
-        <h5>Region- or label-based morphometry (RBM)</h5>
-      </header>
-      <p>CAT also allows estimation of regional tissue volumes (and optionally cortical thickness values) for different volume and surface-based atlas maps. The idea of this approach is that regions of interest (ROIs) can be defined once in an atlas brain and can be then mapped to the individual brain by using a high-dimensional spatial registration. This approach is also known as label- or region-based morphometry.</p>
-      <p>CAT provides different volume- as well as surface-based atlases with several predefined ROIs.</p>
-    </div>
-    <a href="#Features" class="button style2 down anchored">Next</a>
-  </section>
-
-<!-- Features -->
-  <section id="Features" class="main style2 left light">                  
-    <div id="Features_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
-      <header>
-        <h5>Features</h5>
-      </header>
-      <p>CAT is an extension of the segmentation in SPM, but uses a completely different segmentation approach.</p>
-
-      <h6>Highlights</h6>
-      <ul class="default left">
-        <li><b>Fully automated</b> &ndash; from a raw T1 image to results, with no manual editing</li>
-        <li><b>All morphometry in one toolbox</b> &ndash; VBM, SBM, DBM, and ROI-based analysis</li>
-        <li><b>Cortical surface &amp; thickness</b> &ndash; plus gyrification, sulcal depth, and cortical complexity</li>
-        <li><b>Robust tissue segmentation</b> &ndash; denoising, partial-volume, and local-adaptive methods</li>
-        <li><b>Built-in quality control</b> &ndash; an automatic A&ndash;F rating for every scan</li>
-        <li><b>Longitudinal pipeline</b> &ndash; dedicated processing for within-subject change</li>
-        <li><b>Atlas-based ROIs</b> &ndash; regional volume and thickness from many volume- and surface-based atlases</li>
-        <li><b>Powerful statistics</b> &ndash; threshold-free cluster enhancement (TFCE)</li>
-        <li><b>Runs anywhere</b> &ndash; Windows, Mac, and Linux, via the GUI or scripts, plus a standalone version that needs no MATLAB license</li>
-        <li><b>BIDS support and parallelization</b> &ndash; ready for large studies</li>
-      </ul>
-
-      <h5>Inside the segmentation pipeline</h5>
-
-      <h6 style="margin-top: 0.5em;">Interpolation</h6>
-      <p>CAT uses an internal interpolation to provide more reliable results even with low resolution images and anisotropic spatial resolutions. Although interpolation cannot add more detail to the images, some processing steps benefit from the higher voxel count, and the strip artefacts commonly seen in modulated images are greatly reduced.</p>
-      
-      <h6>Denoising</h6>
-      <p>We also use two noise reduction methods to make data processing, and the tissue segmentation in particular, more robust against noise. The first method is a spatial-adaptive Non-Local Means (SANLM) denoising filter and removes noise while maintaining edges (<a href="https://dx.doi.org/10.1002/jmri.22003">Manjon et al. 2010</a>) and is implemented as pre-processing step. The second method is a classical Markov Random Field (MRF) approach, which includes spatial information from adjacent voxels in the segmentation estimation (<a href="https://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>) and is part of the AMAP segmentation.</p>
-      
-      <h6>Affine Preprocessing (APP)</h6>
-      <p>To improve the initial SPM segmentation, an affine registration is applied to a bias-corrected image, and the intensity range is limited to avoid problems with special protocols. If this preprocessing fails, a more aggressive version is available that applies a rough bias correction and removes non-brain parts of the brain before the affine registration.</p>
-
-      <h6>Local Adaptive Segmentation (LAS)</h6>
-      <p>GM intensity can vary for different regions such as the motor cortex, the basal ganglia, or the occipital lobe. These changes have an anatomical background (e.g. iron content, myelination), but are dependent on the MR-protocol and often lead to GM-underestimations at higher intensities and CSF-overestimations at lower intensities. Therefore, a local intensity transformation of all tissue classes is used to reduce these effects in the image before the final AMAP segmentation. </p>
-      
-      <h6>Amap Segmentation</h6>
-      <p>The segmentation approach is based on an Adaptive Maximum A Posterior (AMAP) technique without the need for a priori information on the tissue probabilities. This means that the Tissue Probability Maps (TPM) are not constantly used in the sense of the classical Unified Segmentation approach (<a href="https://dx.doi.org/10.1016/j.neuroimage.2005.02.018">Ashburner et al. 2005</a>), but only for spatial normalisation, initial skull-stripping, and as initial segmentation estimate. The subsequent AMAP estimation is adaptive in the sense that local variations of the parameters (i.e., means and variance) are modelled as slowly varying spatial functions (<a href="https://dx.doi.org/10.1109/42.563663">Rajapakse et al. 1997</a>). This accounts not only for intensity inhomogeneities, but also for other local intensity variations.</p>
-      
-      <h6>Partial Volume Segmentation</h6>
-      <p>In addition, the segmentation approach uses a Partial Volume Estimation (PVE) with a simplified mixed model of a maximum of two tissue types (<a href="https://dx.doi.org/10.1016/j.neuroimage.2004.05.007">Tohka et al. 2004</a>). We begin with an initial segmentation into three pure classes: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) based on the AMAP estimation described above. The initial segmentation is followed by a PVE consisting of two additional mixed classes: GM-WM and GM-CSF. This results in an estimate of the amount (or fraction) of each pure tissue type that is present in each voxel (since single voxels - given their size - probably contain more than one tissue type) and thus allows for more precise segmentation.</p>
-      
-      <h6>Skull-Stripping</h6>
-      <p>CAT contains a revised graph-cut based skull-stripping.</p>
-      
-      <h6>Spatial Normalisation</h6>
-      <p>Another important extension of the SPM segmentation is the integration of the Dartel (<a href="https://dx.doi.org/10.1016/j.neuroimage.2007.07.007">Ashburner 2007</a>) and the Geodesic Shooting (<a href="https://doi.org/10.1016/j.neuroimage.2010.12.049">Ashburner 2011</a>) normalisation into the toolbox by already existing DARTEL and Geodesic Shooting templates in MNI space. These templates were derived from 555 healthy control subjects of the <a href="http://www.brain-development.org">IXI-database</a>. Therefore, the creation of sample-specific DARTEL and Geodesic Shooting templates is no longer necessary for most studies.</p>
-    </div>
-    <a href="#QC" class="button style2 down anchored">Next</a>
-  </section>        
-
-<!-- QC -->
-  <section id="QC" class="main style2 right light">                 
-    <div id="QC_anchor" class="content box right" style="color: #444; background-color: #fff; background: rgba(255, 255, 255, 0.9);">
-      <header>
-        <h5>Quality control (QC)</h5>
-      </header>
-      <p>Preprocessing of magnetic resonance (MR) images strongly depends on the quality of the input data. Especially multi-center studies and data-sharing projects need to take into account varying image properties due to different scanners, sequences and protocols.</p>
-      <p>CAT introduces a novel retrospective QC framework for empirical quantification of quality differences in different scans or studies. Retrospective QC allows the evaluation of essential image parameters such as noise, inhomogeneities, and image resolution. All these quality measures will be scaled to a rating scale which easily allows to compare measures across different scanners and sequences. Furthermore, quality measures are summarised into a single rating on an intuitive A&ndash;F scale.</p>
-    </div>
-    <a href="#CITE" class="button style2 down anchored">Next</a>
-  </section>
-
-<!-- How to cite -->
-  <section id="CITE" class="main style2 left light">
-    <div id="CITE_anchor" class="content box left" style="color: #444; background-color: #fff; background: rgba(220, 222, 224, 0.9);">
-      <header>
-        <h5>How to cite</h5>
-      </header>
-      <p>If you use CAT in your work, please cite the main reference:</p>
-      <p>Gaser C, Dahnke R, Thompson PM, Kurth F, Luders E, Alzheimer&rsquo;s Disease Neuroimaging Initiative (2024). CAT &ndash; A computational anatomy toolbox for the analysis of structural MRI data. <i>GigaScience</i> 13, giae049. <a href="https://doi.org/10.1093/gigascience/giae049">https://doi.org/10.1093/gigascience/giae049</a></p>
-      <p>Please also cite the work of the other researchers referenced throughout this page whose methods you use.</p>
-    </div>
-    <a href="#DOWNLOAD" class="button style2 down anchored">Next</a>
-  </section>
-
-<!-- Download -->
-  <section id="DOWNLOAD" class="main style3 center">
-    <div id="download_anchor" class="content container">
-      <header>
-        <h5>Download</h5>
-      </header>
-      <p>The CAT toolbox is available to the scientific community under the terms of the GNU General Public License.</p>
-      <ul class="actions">
-        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest" class="button">Download CAT</a></li>
-        <li><a href="https://dbm.neuro.uni-jena.de/cat12/" class="button">Download older CAT versions</a></li>
-        <li><a href="https://neuro-jena.github.io/cat12-help/" class="button">CAT Manual</a></li>
-      </ul>
-      <br>
-      
-      <h5>Requirements</h5><br>
-      <p>CAT is designed to work with <a href="https://www.fil.ion.ucl.ac.uk/spm/software/#current/">SPM12</a> or newer and <a href="https://www.mathworks.com/products/matlab/">Matlab</a> versions 7.4 (R2007a) or newer. No additional toolboxes are required.</p>
-      
-      <h5>Installation</h5><br>
-      <ul class="default left">
-        <li>Remove the old cat12 or CAT folder in spm/toolbox if existing</li>
-        <li>Unpack the zip-file</li>
-        <li>Copy the CAT folder to the spm/toolbox directory</li>
-        <li>If once installed use the update function in CAT in order to check for new versions</li>
-        <li>After restarting SPM either call CAT via the toolbox button or (as short-cut) type <i>CAT</i> on the Matlab command line.</li>
-      </ul>
-      <br>
-      
-      <h5>Download Standalone Version (no Matlab license needed)</h5><br>
-      <p>The advantage of the standalone version is that no Matlab license is needed. Only the (free) Matlab Runtime R2023b (v232) has to be downloaded. However, there are some limitations (e.g. no parallelization and no interactive help in the GUI version) and the standalone version is primarily intended for headless (non-GUI) use on Unix systems. Please check the <a href="https://neuro-jena.github.io/enigma-cat12/#standalone">ENIGMA CAT12</a> site for more information and examples to call CAT from shell scripts.</p>
-      <p>The MATLAB Compiler Runtime (MCR) enables you to run applications compiled within MATLAB using MATLAB Compiler. MCR does not require a MATLAB license and can be used to run the MATLAB compiled program on computers which do not have MATLAB installed. </p>
-      <ul class="actions">
-        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Linux.zip" class="button">CAT Standalone for Linux</a></li>
-        <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2023b_Update_10_glnxa64.zip" class="button">MCR for Linux</a></li>
-      </ul>
-      <ul class="actions">
-        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac.zip" class="button">CAT Standalone for Mac Intel</a></li>
-        <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maci64/MATLAB_Runtime_R2023b_Update_10_maci64.dmg.zip" class="button">MCR for Mac</a></li>
-      </ul>
-      <ul class="actions">
-        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Mac_arm64.zip" class="button">CAT Standalone for Mac ARM64 (Silicon)</a></li>
-        <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/maca64/MATLAB_Runtime_R2023b_Update_10_maca64.dmg" class="button">MCR for Mac (ARM64)</a></li>
-      </ul>
-      <ul class="actions">
-        <li><a href="https://github.com/ChristianGaser/cat12/releases/latest/download/CAT_R2023b_MCR_Win.zip" class="button">CAT Standalone for Windows</a></li>
-        <li><a href="https://ssd.mathworks.com/supportfiles/downloads/R2023b/Release/10/deployment_files/installer/complete/win64/MATLAB_Runtime_R2023b_Update_10_win64.zip" class="button">MCR for Windows</a></li>
-      </ul>
-
-      <p>Please contact <a href="mailto:christian.gaser@uni-jena.de">me</a> if you need other versions.</p>
-    </div>
-    <a href="#About" class="button style2 down anchored">Next</a>
-  </section>
-  
-  <section id="CONTACT" class="main style2 center">
-    <ul class="style2 center">
-      <li>&copy; <a href="mailto:christian.gaser@uni-jena.de">Christian Gaser</a>, Jena University Hospital. All rights reserved.</li>
-      <li>Design Template: <a href="https://html5up.net/">HTML5 UP</a></li>
-    </ul>                         
-  </section>
-</body></html>
+  </footer>
+</body>
+</html>
