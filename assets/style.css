@@ -203,11 +203,48 @@ code { font-family: var(--mono); font-size: .88em; background: var(--panel); pad
   .feature-media .swipe img { min-width: 640px; max-width: none; }
   .feature-media .swipe + figcaption::after { content: " Swipe to see the full figure."; }
 }
+@media (max-width: 900px) {   /* vector figures with small text: keep the text at about 10px or larger */
+  .feature-media .swipe-wide img { min-width: 820px; max-width: none; }
+  .feature-media .swipe-wide + figcaption::after { content: " Swipe to see the full figure."; }
+}
 .feature-media figcaption { color: var(--muted); font-size: .88rem; text-align: center; }
-.captions3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+/* ROI figure: a volume and a surface atlas on one subject, with some of its regional values */
+.roi-figure { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px; }
+/* caption, image and table line up across the cards */
+.roi-figure > figure { margin: 0; display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+.feature-media .roi-figure figcaption { color: var(--muted); font-size: .8rem; line-height: 1.3; text-align: left; }
+.roi-figure figcaption strong { display: block; color: var(--text); font-size: .9rem; }
+.feature-media .roi-figure img { width: 100%; height: auto; aspect-ratio: 1.3; object-fit: contain; border-radius: 0; }
+.roi-values { width: 100%; align-self: end; border-collapse: collapse; font-size: .78rem; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.roi-values th, .roi-values td { padding: 4px 0; border-top: 1px solid var(--border); text-align: left; font-weight: 400; }
+.roi-values thead th { border-top: 0; color: var(--muted); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.roi-values td, .roi-values thead th:last-child { text-align: right; white-space: nowrap; padding-left: 8px; }
+.roi-values i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; vertical-align: -1px; background: var(--c); }
+@media (max-width: 480px) { .roi-figure { grid-template-columns: minmax(0, 1fr); } }
 .tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .tiles figure { margin: 0; }
 .tiles figcaption { font-size: .8rem; margin-top: 6px; }
+/* surface figure: cut-away with its key (thickness colors, surfaces drawn on the T1 slice) and folding measures */
+.surface-main { margin: 0; display: grid; gap: 12px; }
+.feature-media .surface-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: .82rem; }
+.surface-key span { display: inline-flex; align-items: center; gap: 6px; }
+.surface-key i, .surface-folding i { height: 6px; border-radius: 3px; background: linear-gradient(90deg, #2b0b3f, #521557, #7b2064, #a7295d, #cc4150, #ea5f42, #f59055, #fbbb79, #fde3a7); }
+.surface-key i { width: 80px; }
+.surface-key .lines { flex-wrap: wrap; justify-content: center; column-gap: 14px; }
+.surface-key .lines span::before { content: ""; width: 14px; height: 3px; border-radius: 2px; background: var(--line); }
+.surface-key .pial { --line: #11b2fc; }
+.surface-key .central { --line: #ffb43c; }
+.surface-key .white { --line: #3ddc2f; }
+.surface-folding { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 10px; margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--border); }
+.surface-folding figure { margin: 0; display: grid; grid-row: span 3; grid-template-rows: subgrid; justify-items: center; align-items: end; }
+.feature-media .surface-folding figcaption { color: var(--text); font-size: .78rem; font-weight: 600; line-height: 1.25; }
+.surface-folding .cbar { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 5px; color: var(--muted); font-size: .7rem; line-height: 1.2; }
+.surface-folding .cbar i { width: 30px; height: 5px; }
+@media (max-width: 480px) {   /* bar above its end labels */
+  .surface-folding .cbar { display: grid; grid-template-columns: auto auto; justify-content: space-between; width: min(100%, 92px); }
+  .surface-folding .cbar i { grid-column: 1 / -1; grid-row: 1; width: 100%; }
+  .surface-folding .cbar span:last-child { justify-self: end; }
+}
 
 .chip-group h4 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 1.2em 0 .6em; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 0 1em; padding: 0; }

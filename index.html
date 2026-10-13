@@ -180,8 +180,18 @@
             <a class="more" href="https://neuro-jena.github.io/cat12-help/#sbm">Surface analysis in the manual</a>
           </div>
           <figure class="feature-media">
-            <img src="assets/img/surface-measures.webp" width="768" height="170" loading="lazy" alt="Curvature, cortical thickness and sulcal depth mapped onto the left hemisphere">
-            <figcaption class="captions3"><span>Curvature</span><span>Thickness</span><span>Sulcal depth</span></figcaption>
+            <figure class="surface-main">
+              <img src="assets/img/surface-cutaway.webp" width="1400" height="1006" loading="lazy" alt="Cortical thickness in color on the left hemisphere. The back half is cut open along a sagittal T1-weighted slice that shows the pial, central and white matter surfaces reconstructed by CAT.">
+              <figcaption class="surface-key">
+                <span>Cortical thickness 1.8<i aria-hidden="true"></i>3.6 mm</span>
+                <span class="lines"><span class="pial">pial surface</span><span class="central">central surface</span><span class="white">white matter surface</span></span>
+              </figcaption>
+            </figure>
+            <div class="surface-folding">
+              <figure><figcaption>Gyrification</figcaption><img src="assets/img/surface-gyrification.webp" width="480" height="342" loading="lazy" alt="Gyrification on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
+              <figure><figcaption>Sulcal depth</figcaption><img src="assets/img/surface-depth.webp" width="480" height="342" loading="lazy" alt="Sulcal depth on the left hemisphere, deep sulci dark"><p class="cbar"><span>deep</span><i aria-hidden="true"></i><span>shallow</span></p></figure>
+              <figure><figcaption>Cortical complexity</figcaption><img src="assets/img/surface-fractaldimension.webp" width="480" height="342" loading="lazy" alt="Cortical complexity (fractal dimension) on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
+            </div>
           </figure>
         </article>
 
@@ -201,7 +211,7 @@
             <a class="more" href="https://neuro-jena.github.io/cat12-help/#surf_proc">Surface mapping in the manual</a>
           </div>
           <figure class="feature-media">
-            <div class="swipe"><picture><source srcset="assets/img/surface-schematic-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/surface-schematic.webp" width="947" height="292" loading="lazy" alt="Schematic of the cortical ribbon showing the measures CAT derives: thickness and area, data sampled from fMRI, structural and diffusion MRI, and folding measures such as curvature and sulcal depth"></picture></div>
+            <div class="swipe swipe-wide"><img src="assets/img/surface-schematic.svg" width="1100" height="318" loading="lazy" alt="Schematic of the cortical ribbon with the skull, pial, central and white matter surfaces, and the measures CAT derives: gray matter thickness, area and volume, CSF and white matter volume; values sampled from fMRI, structural and diffusion MRI, including a white matter lesion; and folding measures: curvature of gyri and sulci, sulcal depth to the convex hull, and the area relation of the folded and unfolded surface"></div>
             <figcaption>Measures on and around the cortical surface: thickness and area, values sampled from fMRI, structural or diffusion data, and folding.</figcaption>
           </figure>
         </article>
@@ -227,8 +237,33 @@
             <a class="more" href="https://neuro-jena.github.io/cat12-help/#roi">ROI analysis in the manual</a>
           </div>
           <figure class="feature-media">
-            <img src="assets/img/atlases.webp" width="722" height="174" loading="lazy" alt="Three cortical parcellations shown on CAT’s template surface">
-            <figcaption class="captions3"><span>Desikan-Killiany</span><span>Destrieux</span><span>Neuromorphometrics</span></figcaption>
+            <div class="roi-figure">
+              <figure>
+                <figcaption><strong>Volume atlas</strong>Neuromorphometrics</figcaption>
+                <img src="assets/img/roi-volume.webp" width="560" height="510" loading="lazy" alt="Coronal T1-weighted slice of one subject with the gray matter regions of the Neuromorphometrics atlas, mapped into the subject’s native space">
+                <table class="roi-values">
+                  <thead><tr><th scope="col">Left region</th><th scope="col">Gray matter</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row"><i style="--c:#f08d6a"></i>Hippocampus</th><td>3.46 ml</td></tr>
+                    <tr><th scope="row"><i style="--c:#be7125"></i>Putamen</th><td>4.19 ml</td></tr>
+                    <tr><th scope="row"><i style="--c:#beac3d"></i>Superior temporal</th><td>7.20 ml</td></tr>
+                  </tbody>
+                </table>
+              </figure>
+              <figure>
+                <figcaption><strong>Surface atlas</strong>Desikan-Killiany</figcaption>
+                <img src="assets/img/roi-surface.webp" width="640" height="432" loading="lazy" alt="Left hemisphere of the same subject with the regions of the Desikan-Killiany atlas on its cortical surface">
+                <table class="roi-values">
+                  <thead><tr><th scope="col">Left region</th><th scope="col">Thickness</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row"><i style="--c:#3c14dc"></i>Precentral</th><td>2.58 mm</td></tr>
+                    <tr><th scope="row"><i style="--c:#dc1414"></i>Postcentral</th><td>2.34 mm</td></tr>
+                    <tr><th scope="row"><i style="--c:#8cdcdc"></i>Superior temporal</th><td>2.92 mm</td></tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <figcaption>Two atlases mapped into the native space of one subject through CAT’s registration, with some of the regional values CAT writes for it.</figcaption>
           </figure>
         </article>
 
@@ -248,8 +283,8 @@
             <a class="more" href="https://neuro-jena.github.io/cat12-help/#qc">Quality control in the manual</a>
           </div>
           <figure class="feature-media natural">
-            <div class="swipe"><picture><source srcset="assets/img/qc-scale-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/qc-scale.webp" width="751" height="196" loading="lazy" alt="CAT quality rating scale: noise, bias and resolution measures mapped to grades from A (excellent) to F (unacceptable)"></picture></div>
-            <figcaption>Noise, bias and resolution map onto one common A–F scale.</figcaption>
+            <div class="swipe"><picture><source srcset="assets/img/qc-ratings-dark.webp" media="(prefers-color-scheme: dark)"><img src="assets/img/qc-ratings.webp" width="2000" height="882" loading="lazy" alt="CAT quality ratings: rating points from 100 to 0, a linear scale from 0.5 to 10.5 and letter grades from A+ (excellent) to F (unacceptable or failed). Example scans of good, bad and ugly quality point to their ratings, and box plots compare the SIQR and the relative gray matter volume of the three groups."></picture></div>
+            <figcaption>One scale from A+ (excellent) to F (failed): example scans of good, bad and ugly quality, and how their SIQR and relative gray matter volume differ.</figcaption>
           </figure>
         </article>
       </div>
