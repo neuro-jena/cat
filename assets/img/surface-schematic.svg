@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 318" width="1100" height="318" role="img" aria-labelledby="t d">
+<title id="t">Measures on and around the cortical surface</title>
+<desc id="d">Schematic cortical ribbon with the skull, pial, central and white matter surfaces; cortical measures (gray matter thickness, area and volume, CSF and white matter volume); intensity- and projection-based measures sampled from fMRI, structural and diffusion MRI, including a white matter lesion; and folding measures (curvature as one over the local radius of gyri and sulci, sulcal depth to the convex hull, and the area relation of the folded and the unfolded surface).</desc>
+<style>
+svg { --text:#17202b; --muted:#556170; --band:rgba(23,32,43,.045); --gm:#d5dce4; --gmvol:#9aa6b2; --skull:#8b96a3; --csf-fill:rgba(42,120,214,.15); --lesion-fill:#dccfa9; --pial:#0b64a0; --pial-line:#1899dc; --central:#8f5400; --central-line:#e08a00; --white:#1f7028; --white-line:#2ea836; --thick:#5a3fd0; --area:#b23a0a; --csf:#1f63b0; --fmri:#b02a62; --smri:#1f63b0; --lesion:#7a6331; --dmri:#097052; --gyri:#c42f2f; --sulci:#1f63b0; --depth:#096a7c; --arearel:#25702f; }
+@media (prefers-color-scheme: dark) { svg { --text:#e6ebf0; --muted:#9aa6b2; --band:rgba(230,235,240,.05); --gm:#3a4552; --gmvol:#6a7684; --skull:#6f7b88; --csf-fill:rgba(121,184,255,.17); --lesion-fill:#7d7158; --pial:#4cc3ff; --pial-line:#4cc3ff; --central:#ffb43c; --central-line:#ffb43c; --white:#5fe356; --white-line:#5fe356; --thick:#a99bff; --area:#ff8a5c; --csf:#79b8ff; --fmri:#ff8fbf; --smri:#79b8ff; --lesion:#cbb98d; --dmri:#3ddc9f; --gyri:#ff7b7a; --sulci:#79b8ff; --depth:#3fd0e0; --arearel:#69db7c; } }
+text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--text); }
+.h { font-size: 15px; font-weight: 650; }
+.n { font-size: 12.5px; }
+.s { font-size: 11.5px; }
+</style>
+<rect x="176" y="0" width="224" height="318" rx="10" style="fill:var(--band)"/>
+<rect x="630" y="0" width="470" height="318" rx="10" style="fill:var(--band)"/>
+<path d="M176,106 H400 V122 H176 Z" style="fill:var(--csf-fill)"/>
+<path d="M378,122 V262 A6,6 0 0 0 390,262 V122 Z" style="fill:var(--csf-fill)"/>
+<line x1="152" y1="106" x2="1100" y2="106" style="stroke:var(--skull)" stroke-width="1.6" stroke-dasharray="1.6 3.2"/>
+<path d="M152,140 H314 A46,46 0 0 1 360,186 V262 A24,24 0 0 0 408,262 V186 A46,46 0 0 1 454,140 H642 A46,46 0 0 1 688,186 V262 A24,24 0 0 0 736,262 V186 A46,46 0 0 1 828,186 V262 A24,24 0 0 0 876,262 V186 A46,46 0 0 1 968,186 V262 A24,24 0 0 0 1016,262 V186 A46,46 0 0 1 1062,140 H1100" fill="none" style="stroke:var(--gm)" stroke-width="36"/>
+<rect x="252" y="122" width="52" height="36" style="fill:var(--gmvol)"/>
+<line x1="152" y1="122" x2="176" y2="122" style="stroke:var(--pial-line)" stroke-width="3"/>
+<line x1="152" y1="158" x2="176" y2="158" style="stroke:var(--white-line)" stroke-width="3"/>
+<path d="M152,140 H314 A46,46 0 0 1 360,186 V262 A24,24 0 0 0 408,262 V186 A46,46 0 0 1 454,140 H642 A46,46 0 0 1 688,186 V262 A24,24 0 0 0 736,262 V186 A46,46 0 0 1 828,186 V262 A24,24 0 0 0 876,262 V186 A46,46 0 0 1 968,186 V262 A24,24 0 0 0 1016,262 V186 A46,46 0 0 1 1062,140 H1100" fill="none" style="stroke:var(--central-line)" stroke-width="2.6"/>
+<text x="142" y="110.5" text-anchor="end" style="fill:var(--muted)"><tspan x="142" dy="0">skull surface</tspan></text>
+<text x="142" y="126.5" text-anchor="end" style="fill:var(--pial)"><tspan x="142" dy="0">pial surface</tspan></text>
+<text x="142" y="144.5" text-anchor="end" style="fill:var(--central)"><tspan x="142" dy="0">central surface</tspan></text>
+<text x="142" y="162.5" text-anchor="end" style="fill:var(--white)"><tspan x="142" dy="0">white matter surface</tspan></text>
+<line x1="252" y1="130" x2="252" y2="150" style="stroke:var(--thick)" stroke-width="2.2"/>
+<path d="M252,157 L248.36,150 L255.64,150 Z" style="fill:var(--thick)"/>
+<path d="M252,123 L255.64,130 L248.36,130 Z" style="fill:var(--thick)"/>
+<line x1="263" y1="140" x2="297" y2="140" style="stroke:var(--area)" stroke-width="2.2"/>
+<path d="M304,140 L297,143.64 L297,136.36 Z" style="fill:var(--area)"/>
+<path d="M256,140 L263,136.36 L263,143.64 Z" style="fill:var(--area)"/>
+<text x="244" y="74" text-anchor="end" style="fill:var(--thick)"><tspan x="244" dy="0">GM</tspan><tspan x="244" dy="16">thickness</tspan></text>
+<text x="260" y="74" text-anchor="start" style="fill:var(--area)"><tspan x="260" dy="0">GM</tspan><tspan x="260" dy="16">area</tspan></text>
+<text x="354" y="74" text-anchor="middle" style="fill:var(--csf)"><tspan x="354" dy="0">CSF</tspan><tspan x="354" dy="16">volume</tspan></text>
+<text x="278" y="182" text-anchor="middle" style="fill:var(--muted)"><tspan x="278" dy="0">GM volume</tspan></text>
+<text x="278" y="246" text-anchor="middle" style="fill:var(--muted)"><tspan x="278" dy="0">WM volume</tspan></text>
+<circle cx="408" cy="186" r="4.2" style="fill:var(--fmri)"/>
+<circle cx="408" cy="208" r="4.2" style="fill:var(--fmri)"/>
+<circle cx="408" cy="230" r="4.2" style="fill:var(--fmri)"/>
+<circle cx="408" cy="252" r="4.2" style="fill:var(--fmri)"/>
+<text x="438" y="74" text-anchor="middle" style="fill:var(--fmri)"><tspan x="438" dy="0">fMRI</tspan><tspan x="438" dy="16">data</tspan></text>
+<line x1="494" y1="140" x2="494" y2="188" style="stroke:var(--smri)" stroke-width="2.2"/>
+<circle cx="494" cy="140" r="4.2" style="fill:var(--smri)"/>
+<circle cx="494" cy="188" r="4.2" style="fill:var(--smri)"/>
+<ellipse cx="514" cy="222" rx="17" ry="24" style="fill:var(--lesion-fill)"/>
+<line x1="514" y1="232" x2="514" y2="152" style="stroke:var(--smri)" stroke-width="2.2"/>
+<path d="M514,145 L517.64,152 L510.36,152 Z" style="fill:var(--smri)"/>
+<circle cx="514" cy="140" r="4.2" style="fill:var(--smri)"/>
+<text x="504" y="74" text-anchor="middle" style="fill:var(--smri)"><tspan x="504" dy="0">sMRI</tspan><tspan x="504" dy="16">data</tspan></text>
+<text x="514" y="266" text-anchor="middle" style="fill:var(--lesion)"><tspan x="514" dy="0">WM</tspan><tspan x="514" dy="16">lesion</tspan></text>
+<line x1="584" y1="224" x2="584" y2="152" style="stroke:var(--dmri)" stroke-width="2.2"/>
+<path d="M584,145 L587.64,152 L580.36,152 Z" style="fill:var(--dmri)"/>
+<circle cx="584" cy="140" r="4.2" style="fill:var(--dmri)"/>
+<text x="584" y="74" text-anchor="middle" style="fill:var(--dmri)"><tspan x="584" dy="0">dMRI</tspan><tspan x="584" dy="16">data</tspan></text>
+<circle cx="712" cy="262" r="24" fill="none" style="stroke:var(--sulci)" stroke-width="1.8" stroke-dasharray="2 3"/>
+<path d="M736,262 A24,24 0 0 1 688,262" fill="none" style="stroke:var(--sulci)" stroke-width="3.2"/>
+<circle cx="782" cy="186" r="46" fill="none" style="stroke:var(--gyri)" stroke-width="1.8" stroke-dasharray="2 3"/>
+<path d="M736,186 A46,46 0 0 1 828,186" fill="none" style="stroke:var(--gyri)" stroke-width="3.2"/>
+<text x="752" y="74" text-anchor="middle" style="fill:var(--text)"><tspan x="752" dy="0">curvature</tspan><tspan x="752" dy="16">(1 / local radius)</tspan></text>
+<text class="n" x="782" y="184" text-anchor="middle" style="fill:var(--gyri)"><tspan x="782" dy="0">outward</tspan><tspan x="782" dy="16">folding</tspan><tspan x="782" dy="16">(gyri)</tspan></text>
+<text class="n" x="782" y="258" text-anchor="middle" style="fill:var(--sulci)"><tspan x="782" dy="0">inward</tspan><tspan x="782" dy="16">folding</tspan><tspan x="782" dy="16">(sulci)</tspan></text>
+<line x1="782" y1="140" x2="922" y2="140" style="stroke:var(--depth)" stroke-width="1.6" stroke-dasharray="4 3"/>
+<line x1="852" y1="286" x2="852" y2="147" style="stroke:var(--depth)" stroke-width="2.2"/>
+<path d="M852,140 L855.64,147 L848.36,147 Z" style="fill:var(--depth)"/>
+<text class="s" x="852" y="134" text-anchor="middle" style="fill:var(--depth)"><tspan x="852" dy="0">convex hull</tspan></text>
+<text x="852" y="74" text-anchor="middle" style="fill:var(--depth)"><tspan x="852" dy="0">sulcal</tspan><tspan x="852" dy="16">depth</tspan></text>
+<path d="M922,140 A46,46 0 0 1 968,186 V262 A24,24 0 0 0 1016,262 V186 A46,46 0 0 1 1062,140" fill="none" style="stroke:var(--arearel)" stroke-width="3.2"/>
+<line x1="922" y1="106" x2="1062" y2="106" style="stroke:var(--arearel)" stroke-width="3" stroke-dasharray="5 3.5"/>
+<text x="992" y="74" text-anchor="middle" style="fill:var(--arearel)"><tspan x="992" dy="0">area relation</tspan><tspan x="992" dy="16">(folded vs. unfolded)</tspan></text>
+<text class="h" x="88" y="24" text-anchor="middle" style="fill:var(--text)"><tspan x="88" dy="0">Cortical</tspan><tspan x="88" dy="16">surfaces</tspan></text>
+<text class="h" x="288" y="24" text-anchor="middle" style="fill:var(--text)"><tspan x="288" dy="0">Cortical</tspan><tspan x="288" dy="16">measures</tspan></text>
+<text class="h" x="515" y="24" text-anchor="middle" style="fill:var(--text)"><tspan x="515" dy="0">Intensity- / projection-</tspan><tspan x="515" dy="16">based measures</tspan></text>
+<text class="h" x="865" y="24" text-anchor="middle" style="fill:var(--text)"><tspan x="865" dy="0">Folding / gyrification / sulcification</tspan><tspan x="865" dy="16">measures</tspan></text>
+</svg>
