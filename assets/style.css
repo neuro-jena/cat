@@ -221,8 +221,10 @@ code { font-family: var(--mono); font-size: .88em; background: var(--panel); pad
 .roi-values td, .roi-values thead th:last-child { text-align: right; white-space: nowrap; padding-left: 8px; }
 .roi-values i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 3px; vertical-align: -1px; background: var(--c); }
 @media (max-width: 480px) { .roi-figure { grid-template-columns: minmax(0, 1fr); } }
-.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-.tiles figure { margin: 0; }
+/* VBM figure: input and label map in the first row, the three tissue maps below */
+.tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px 10px; }
+.tiles figure { margin: 0; grid-column: span 2; }
+.tiles figure:nth-child(-n+2) { grid-column: span 3; }
 .tiles figcaption { font-size: .8rem; margin-top: 6px; }
 /* surface figure: cut-away with its key (thickness colors, surfaces drawn on the T1 slice) and folding measures */
 .surface-main { margin: 0; display: grid; gap: 12px; }
@@ -254,9 +256,6 @@ code { font-family: var(--mono); font-size: .88em; background: var(--panel); pad
   .feature, .feature.wide { grid-template-columns: minmax(0, 1fr); }
   .feature.reverse .feature-media { order: 0; }
   .feature.wide .feature-text:nth-child(2) { padding-top: 0; }
-}
-@media (max-width: 560px) {
-  .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* ---------- Approach: editorial two-column text ---------- */
