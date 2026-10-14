@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CAT – Computational Anatomy Toolbox for SPM</title>
-  <meta name="description" content="CAT is a free toolbox for SPM that combines voxel-based morphometry (VBM), surface-based analysis of cortical thickness and folding, mapping of fMRI data to the cortical surface, and atlas-based ROI analysis of structural MRI in one automated pipeline.">
+  <meta name="description" content="CAT is a free toolbox for SPM that combines voxel-based morphometry (VBM), atlas-based ROI analysis, surface-based analysis of cortical thickness and folding, and mapping of fMRI data to the cortical surface in one automated pipeline for structural MRI.">
   <link rel="canonical" href="https://neuro-jena.github.io/cat/">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -17,7 +17,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CAT – Computational Anatomy Toolbox">
   <meta property="og:title" content="CAT – Computational Anatomy Toolbox for SPM">
-  <meta property="og:description" content="Voxel-, surface- and region-based analysis of structural brain MRI in one automated, free toolbox.">
+  <meta property="og:description" content="Voxel-, region- and surface-based analysis of structural brain MRI in one automated, free toolbox.">
   <meta property="og:url" content="https://neuro-jena.github.io/cat/">
   <meta property="og:image" content="https://neuro-jena.github.io/cat/assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -83,8 +83,8 @@
         <div class="hero-copy">
           <a class="pill" href="#new"><span class="pill-tag">New</span> CAT26: faster surfaces, surface area, new QC <span aria-hidden="true">→</span></a>
           <p class="eyebrow">Computational Anatomy Toolbox for SPM</p>
-          <h1>Voxels, surfaces and regions. <span class="accent">One toolbox.</span></h1>
-          <p class="lead">CAT turns T1-weighted MRI scans into gray-matter maps, cortical surfaces with thickness and folding measures, and atlas-based regional values. It is fully automated, with quality control and statistics built in.</p>
+          <h1>Voxels, regions, and surfaces. <span class="accent">One toolbox.</span></h1>
+          <p class="lead">CAT measures brain structure in T1-weighted MRI scans at three levels: voxel by voxel, in atlas regions, and on the cortical surface, including thickness and folding. It is fully automated, with quality control and statistics built in.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#download">Download CAT26</a>
             <a class="btn btn-ghost" href="https://neuro-jena.github.io/cat12-help/#quick">Quick start guide</a>
@@ -115,7 +115,7 @@
         <header class="section-head">
           <p class="eyebrow">Analyses</p>
           <h2>One scan, one run, many ways to analyze it</h2>
-          <p class="section-lead">A single preprocessing run gives you voxel-, surface- and region-based data. All of it comes from the same tissue segmentation, so your results are consistent across methods.</p>
+          <p class="section-lead">A single preprocessing run gives you voxel-, region- and surface-based data. All of it comes from the same tissue segmentation, so your results are consistent across methods.</p>
         </header>
 
         <div class="flow">
@@ -135,8 +135,8 @@
           <span class="flow-arrow" aria-hidden="true"></span>
           <ul class="flow-out">
             <li><a href="#vbm"><strong>Voxel-based</strong><span>Gray &amp; white matter maps</span></a></li>
-            <li><a href="#surface"><strong>Surface-based</strong><span>Thickness, folding, mapped fMRI</span></a></li>
             <li><a href="#regions"><strong>Region-based</strong><span>Volume &amp; surface atlases</span></a></li>
+            <li><a href="#surface"><strong>Surface-based</strong><span>Thickness, folding, mapped fMRI</span></a></li>
             <li><a href="#quality"><strong>Quality report</strong><span>A–F rating for every scan</span></a></li>
           </ul>
         </div>
@@ -165,59 +165,8 @@
           </figure>
         </article>
 
-        <!-- Surfaces -->
-        <article id="surface" class="feature reverse">
-          <div class="feature-text">
-            <p class="eyebrow">Surface-based morphometry</p>
-            <h3>Cortical thickness and folding, fully automated</h3>
-            <p>CAT reconstructs the central cortical surface and measures thickness in one step, directly from the tissue segmentation (projection-based thickness). No manual editing is needed. In CAT26, the surface pipeline is faster and creates topology-correct surfaces from the start.</p>
-            <ul class="checks">
-              <li>Cortical thickness</li>
-              <li>Folding: gyrification, sulcal depth and cortical complexity (fractal dimension)</li>
-              <li><span class="badge">New</span> Surface area</li>
-              <li>Spherical registration to standard 164k or 32k (HCP) meshes for group statistics</li>
-            </ul>
-            <a class="more" href="https://neuro-jena.github.io/cat12-help/#sbm">Surface analysis in the manual</a>
-          </div>
-          <figure class="feature-media">
-            <figure class="surface-main">
-              <img src="assets/img/surface-cutaway.webp" width="1400" height="1006" loading="lazy" alt="Cortical thickness in color on the left hemisphere. The back half is cut open along a sagittal T1-weighted slice that shows the pial, central and white matter surfaces reconstructed by CAT.">
-              <figcaption class="surface-key">
-                <span>Cortical thickness 1.8<i aria-hidden="true"></i>3.6 mm</span>
-                <span class="lines"><span class="pial">pial surface</span><span class="central">central surface</span><span class="white">white matter surface</span></span>
-              </figcaption>
-            </figure>
-            <div class="surface-folding">
-              <figure><figcaption>Gyrification</figcaption><img src="assets/img/surface-gyrification.webp" width="480" height="342" loading="lazy" alt="Gyrification on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
-              <figure><figcaption>Sulcal depth</figcaption><img src="assets/img/surface-depth.webp" width="480" height="342" loading="lazy" alt="Sulcal depth on the left hemisphere, deep sulci dark"><p class="cbar"><span>deep</span><i aria-hidden="true"></i><span>shallow</span></p></figure>
-              <figure><figcaption>Cortical complexity</figcaption><img src="assets/img/surface-fractaldimension.webp" width="480" height="342" loading="lazy" alt="Cortical complexity (fractal dimension) on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
-            </div>
-          </figure>
-        </article>
-
-        <!-- Surface mapping -->
-        <article id="mapping" class="feature wide">
-          <div class="feature-text">
-            <p class="eyebrow">Surface mapping</p>
-            <h3>Bring fMRI and other volume data to the cortex</h3>
-            <p>Map fMRI contrasts or any other volume data, such as myelin-sensitive or quantitative maps, onto each subject’s own cortical surface and benefit from surface-based smoothing and registration. Results that are already in MNI space can be projected onto the template surface.</p>
-          </div>
-          <div class="feature-text">
-            <ul class="checks">
-              <li>Sampling at chosen cortical depths (equi-distance or equi-volume)</li>
-              <li>The same surface statistics and displays as for thickness</li>
-              <li>Show VBM results on the cortical surface, too</li>
-            </ul>
-            <a class="more" href="https://neuro-jena.github.io/cat12-help/#surf_proc">Surface mapping in the manual</a>
-          </div>
-          <figure class="feature-media">
-            <div class="swipe swipe-wide"><img src="assets/img/surface-schematic.svg" width="1100" height="318" loading="lazy" alt="Schematic of the cortical ribbon with the skull, pial, central and white matter surfaces, and the measures CAT derives: gray matter thickness, area and volume, CSF and white matter volume; values sampled from fMRI, structural and diffusion MRI, including a white matter lesion; and folding measures: curvature of gyri and sulci, sulcal depth to the convex hull, and the area relation of the folded and unfolded surface"></div>
-            <figcaption>Measures on and around the cortical surface: thickness and area, values sampled from fMRI, structural or diffusion data, and folding.</figcaption>
-          </figure>
-        </article>
-
         <!-- Regions -->
-        <article id="regions" class="feature">
+        <article id="regions" class="feature reverse">
           <div class="feature-text">
             <p class="eyebrow">Region-based morphometry</p>
             <h3>Regional values from volume and surface atlases</h3>
@@ -267,6 +216,57 @@
           </figure>
         </article>
 
+        <!-- Surfaces -->
+        <article id="surface" class="feature">
+          <div class="feature-text">
+            <p class="eyebrow">Surface-based morphometry</p>
+            <h3>Cortical thickness and folding, fully automated</h3>
+            <p>CAT reconstructs the central cortical surface and measures thickness in one step, directly from the tissue segmentation (projection-based thickness). No manual editing is needed. In CAT26, the surface pipeline is faster and creates topology-correct surfaces from the start.</p>
+            <ul class="checks">
+              <li>Cortical thickness</li>
+              <li>Folding: gyrification, sulcal depth and cortical complexity (fractal dimension)</li>
+              <li><span class="badge">New</span> Surface area</li>
+              <li>Spherical registration to standard 164k or 32k (HCP) meshes for group statistics</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#sbm">Surface analysis in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <figure class="surface-main">
+              <img src="assets/img/surface-cutaway.webp" width="1400" height="1006" loading="lazy" alt="Cortical thickness in color on the left hemisphere. The back half is cut open along a sagittal T1-weighted slice that shows the pial, central and white matter surfaces reconstructed by CAT.">
+              <figcaption class="surface-key">
+                <span>Cortical thickness 1.8<i aria-hidden="true"></i>3.6 mm</span>
+                <span class="lines"><span class="pial">pial surface</span><span class="central">central surface</span><span class="white">white matter surface</span></span>
+              </figcaption>
+            </figure>
+            <div class="surface-folding">
+              <figure><figcaption>Gyrification</figcaption><img src="assets/img/surface-gyrification.webp" width="480" height="342" loading="lazy" alt="Gyrification on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
+              <figure><figcaption>Sulcal depth</figcaption><img src="assets/img/surface-depth.webp" width="480" height="342" loading="lazy" alt="Sulcal depth on the left hemisphere, deep sulci dark"><p class="cbar"><span>deep</span><i aria-hidden="true"></i><span>shallow</span></p></figure>
+              <figure><figcaption>Cortical complexity</figcaption><img src="assets/img/surface-fractaldimension.webp" width="480" height="342" loading="lazy" alt="Cortical complexity (fractal dimension) on the left hemisphere"><p class="cbar"><span>low</span><i aria-hidden="true"></i><span>high</span></p></figure>
+            </div>
+          </figure>
+        </article>
+
+        <!-- Surface mapping -->
+        <article id="mapping" class="feature wide">
+          <div class="feature-text">
+            <p class="eyebrow">Surface mapping</p>
+            <h3>Bring fMRI and other volume data to the cortex</h3>
+            <p>Map fMRI contrasts or any other volume data, such as myelin-sensitive or quantitative maps, onto each subject’s own cortical surface and benefit from surface-based smoothing and registration. Results that are already in MNI space can be projected onto the template surface.</p>
+          </div>
+          <div class="feature-text">
+            <ul class="checks">
+              <li>Sampling at chosen cortical depths (equi-distance or equi-volume)</li>
+              <li>The same surface statistics and displays as for thickness</li>
+              <li>Show VBM results on the cortical surface, too</li>
+            </ul>
+            <a class="more" href="https://neuro-jena.github.io/cat12-help/#surf_proc">Surface mapping in the manual</a>
+          </div>
+          <figure class="feature-media">
+            <div class="swipe swipe-wide"><img src="assets/img/surface-schematic.svg" width="1100" height="318" loading="lazy" alt="Schematic of the cortical ribbon with the skull, pial, central and white matter surfaces, and the measures CAT derives: gray matter thickness, area and volume, CSF and white matter volume; values sampled from fMRI, structural and diffusion MRI, including a white matter lesion; and folding measures: curvature of gyri and sulci, sulcal depth to the convex hull, and the area relation of the folded and unfolded surface"></div>
+            <figcaption>Measures on and around the cortical surface: thickness and area, values sampled from fMRI, structural or diffusion data, and folding.</figcaption>
+          </figure>
+        </article>
+
         <!-- Quality -->
         <article id="quality" class="feature wide">
           <div class="feature-text">
@@ -297,13 +297,13 @@
           <p class="eyebrow">Approach</p>
           <h2>One segmentation, many measures</h2>
           <p>Voxel-based and surface-based analyses are often carried out with separate software packages, each with its own segmentation, registration, coordinate space and quality checks. Combining their results means reconciling different processing streams.</p>
-          <p>CAT is built around a single processing stream instead. Gray-matter maps, cortical surfaces and regional values are all derived from the same tissue segmentation within one automated run, so voxel-, surface- and region-based results can be compared directly.</p>
+          <p>CAT is built around a single processing stream instead. Gray-matter maps, regional values and cortical surfaces are all derived from the same tissue segmentation within one automated run, so voxel-, region- and surface-based results can be compared directly.</p>
           <p class="approach-ref">The methods are described in detail in <a href="https://doi.org/10.1093/gigascience/giae049">Gaser et al. (2024), <i>GigaScience</i></a>.</p>
         </header>
         <ol class="principles">
           <li>
             <h3>Consistent across methods</h3>
-            <p>Gray-matter maps, cortical surfaces and regional values all come from one segmentation with partial-volume estimation, so volumes, surfaces and atlas regions refer to the same delineation of the cortex.</p>
+            <p>Gray-matter maps, regional values and cortical surfaces all come from one segmentation with partial-volume estimation, so volumes, atlas regions and surfaces refer to the same delineation of the cortex.</p>
           </li>
           <li>
             <h3>Surfaces without manual editing</h3>
@@ -355,7 +355,7 @@
           <li>
             <span class="step-n" aria-hidden="true">4</span>
             <h3>Analyze</h3>
-            <p>Run voxel-, surface- or ROI-based statistics and show results on slices or on the cortical surface.</p>
+            <p>Run voxel-, ROI- or surface-based statistics and show results on slices or on the cortical surface.</p>
           </li>
         </ol>
         <div class="center-row">
