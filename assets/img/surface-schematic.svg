@@ -3,7 +3,7 @@
 <desc id="d">Schematic cortical ribbon with the skull, pial, central and white matter surfaces; cortical measures (gray matter thickness, area and volume, CSF and white matter volume); intensity- and projection-based measures sampled from fMRI, structural and diffusion MRI, including a white matter lesion; and folding measures (curvature as one over the local radius of gyri and sulci, sulcal depth to the convex hull, and the area relation of the folded and the unfolded surface).</desc>
 <style>
 svg { --text:#17202b; --muted:#556170; --band:rgba(23,32,43,.045); --gm:#d5dce4; --gmvol:#9aa6b2; --skull:#8b96a3; --csf-fill:rgba(42,120,214,.15); --lesion-fill:#dccfa9; --pial:#0b64a0; --pial-line:#1899dc; --central:#8f5400; --central-line:#e08a00; --white:#1f7028; --white-line:#2ea836; --thick:#5a3fd0; --area:#b23a0a; --csf:#1f63b0; --fmri:#b02a62; --smri:#1f63b0; --lesion:#7a6331; --dmri:#097052; --gyri:#c42f2f; --sulci:#1f63b0; --depth:#096a7c; --arearel:#25702f; }
-@media (prefers-color-scheme: dark) { svg { --text:#e6ebf0; --muted:#9aa6b2; --band:rgba(230,235,240,.05); --gm:#3a4552; --gmvol:#6a7684; --skull:#6f7b88; --csf-fill:rgba(121,184,255,.17); --lesion-fill:#7d7158; --pial:#4cc3ff; --pial-line:#4cc3ff; --central:#ffb43c; --central-line:#ffb43c; --white:#5fe356; --white-line:#5fe356; --thick:#a99bff; --area:#ff8a5c; --csf:#79b8ff; --fmri:#ff8fbf; --smri:#79b8ff; --lesion:#cbb98d; --dmri:#3ddc9f; --gyri:#ff7b7a; --sulci:#79b8ff; --depth:#3fd0e0; --arearel:#69db7c; } }
+@media (prefers-color-scheme: dark) { svg { --text:#e6ebf0; --muted:#9aa6b2; --band:rgba(230,235,240,.05); --gm:#3a4552; --gmvol:#6a7684; --skull:#6f7b88; --lesion-fill:#7d7158; --pial:#4cc3ff; --pial-line:#4cc3ff; --central:#ffb43c; --central-line:#ffb43c; --white:#5fe356; --white-line:#5fe356; --thick:#a99bff; --area:#ff8a5c; --csf:#79b8ff; --fmri:#ff8fbf; --smri:#79b8ff; --lesion:#cbb98d; --dmri:#3ddc9f; --gyri:#ff7b7a; --sulci:#79b8ff; --depth:#3fd0e0; --arearel:#69db7c; } }
 text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; fill: var(--text); }
 .h { font-size: 15px; font-weight: 650; }
 .n { font-size: 12.5px; }
@@ -11,8 +11,6 @@ text { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neu
 </style>
 <rect x="176" y="0" width="224" height="318" rx="10" style="fill:var(--band)"/>
 <rect x="630" y="0" width="470" height="318" rx="10" style="fill:var(--band)"/>
-<path d="M176,106 H400 V122 H176 Z" style="fill:var(--csf-fill)"/>
-<path d="M378,122 V262 A6,6 0 0 0 390,262 V122 Z" style="fill:var(--csf-fill)"/>
 <line x1="152" y1="106" x2="1100" y2="106" style="stroke:var(--skull)" stroke-width="1.6" stroke-dasharray="1.6 3.2"/>
 <path d="M152,140 H314 A46,46 0 0 1 360,186 V262 A24,24 0 0 0 408,262 V186 A46,46 0 0 1 454,140 H642 A46,46 0 0 1 688,186 V262 A24,24 0 0 0 736,262 V186 A46,46 0 0 1 828,186 V262 A24,24 0 0 0 876,262 V186 A46,46 0 0 1 968,186 V262 A24,24 0 0 0 1016,262 V186 A46,46 0 0 1 1062,140 H1100" fill="none" style="stroke:var(--gm)" stroke-width="36"/>
 <rect x="252" y="122" width="52" height="36" style="fill:var(--gmvol)"/>
